@@ -1,0 +1,179 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { STATIC_PAGES } from "../../config/site";
+import { buildBreadcrumb } from "../../data/site.js";
+
+const lang = 'ja';
+const title = 'クッキーポリシー | Grand-Hope';
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="privacy-policy"
+  title={title}
+>
+  <section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">
+    <div class="rs-breadcrumb-bg" style="background-image: url('https://img.grand-hope.com.cn/system/grand-hope-cookie-banner.webp');"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-6 col-xl-8 col-lg-8">
+          <div class="rs-breadcrumb-content-wrapper">
+            <div class="rs-breadcrumb-title-wrapper">
+              <h1 class="rs-breadcrumb-title">クッキーポリシー</h1>
+            </div>
+            <div class="rs-breadcrumb-menu">
+              <nav>
+                <ul>
+                  {buildBreadcrumb(lang, [{ label: 'クッキーポリシー' }]).map((item) => (
+                    <li><span>{item.href ? <a href={item.href}>{item.label}</a> : item.label}</span></li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rs-postbox-area section-space">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-xl-8 col-lg-8 cookie-content" style="margin:0 auto;float:none;">
+          <div class="rs-postbox-details-wrapper content">
+            <p class="last-updated">最終更新日: 2026-04-18</p>
+            <section><h2>1. クッキーとは何ですか？</h2><p>クッキーとは、ほとんどのウェブサイトを閲覧する際にデバイス（コンピュータ、スマートフォン、タブレットなど）に保存される小さなテキストファイルです。一部の場合を除き、クッキーがデバイスに保存されるには同意が必要です。</p><p>以下のクッキー設定の全部または一部を変更することで、設定を管理できます。すべてのクッキーを許可または無効にすることもできます。</p></section>
+            <section><h2>2. どのような情報を収集しますか？</h2><p>同意に基づいてデバイスに保存するクッキーにより、以下の情報を収集できます：</p><h3>2.1 使用しているデバイスに関する情報：</h3><ul><li>使用しているデバイスの種類（スマートフォン、タブレット、コンピュータなど）</li><li>デバイスのオペレーティングシステム（macOS、iOS、Android、Windows、BlackBerryなど）</li><li>デバイスのプラグインの種類とバージョン</li><li>使用しているブラウザ（Safari、Chrome、Internet Explorerなど）</li><li>デバイスのIPアドレス</li><li>デバイスの地理位置データ</li><li>言語設定</li></ul><h3>2.2 閲覧とユーザーの行動データ：</h3><ul><li>当ウェブサイトの各ページのトラフィック統計</li><li>当サイトへのアクセス、サイト内、サイトからの完全なURLパス</li><li>表示された広告の詳細</li><li>それらの広告とのやり取り</li><li>広告をクリックした後の行動</li><li>広告を受け取った回数</li><li>オンラインアクティビティに関連する個人情報</li></ul></section>
+            <section><h2>3. 基本的なクッキー</h2><p>これらのクッキーはウェブサイトの適切な機能に必要です。その設定は変更できません。</p><p>これらの基本的なクッキーは同意を必要としません。</p></section>
+            <section><h2>4. パフォーマンスクッキー</h2><p>これらのクッキーは、サイトのパフォーマンスを向上させるために、当ウェブサイトへの訪問者数をカウントおよび分析します。</p><p>これらのクッキーは事前の同意が必要です。</p></section>
+            <section><h2>5. 広告およびソーシャルメディアクッキー</h2><p>これらのクッキーは、お客様の好みに基づいて第三者のウェブサイト上で当社の広告をカスタマイズするために使用されます。</p><p>これらのクッキーは事前の同意が必要です。</p></section>
+            <section><h2>6. サードパーティクッキー</h2><p>当ウェブサイトにはサードパーティのアプリケーションが含まれているため、当社のパートナーがクッキーを設定する場合があります。</p><p>これらのクッキーは事前の同意が必要です。</p></section>
+            <section><h2>7. これらのクッキーの目的と保存期間は？</h2>
+              <div class="table-responsive">
+                <table class="cookie-table">
+                  <thead><tr><th>クッキーの種類</th><th>名前</th><th>目的</th><th>クッキーの期間</th></tr></thead>
+                  <tbody><tr><td>基本的なクッキー</td><td>クッキーの同意</td><td>ユーザーがクッキーを受け入れたかどうかを確認します</td><td>100日</td></tr><tr><td>パフォーマンスクッキー</td><td></td><td>Google AnalyticsセッションIDの保存</td><td>2年</td></tr><tr><td>広告クッキー</td><td>Googleへのクッキーの同意</td><td>ユーザーがGoogleのポリシーに同意しているかを確認します</td><td>1年</td></tr></tbody>
+                </table>
+              </div>
+            </section>
+            <section><h2>8. クッキーの設定</h2><p>私たちは、ウェブサイトの利用状況をよりよく理解するために、このウェブサイトでお客様のデータを収集し、処理します。私たちは常にあなたの同意を求めます。ここでプライバシー設定を変更できます。</p><p>さらに、ブラウザの設定を調整することで、クッキーの設定をブロックすることができます。クッキーを無効にすると、このウェブサイトだけでなく、アクセスする他の多くのウェブサイトの機能に影響することにご注意ください。</p>
+              <button id="cookieSettingsBtn" class="rs-btn blue-bg cookie-settings-btn">設定</button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<div class="cookie-overlay" id="cookieModal" style="display:none;">
+  <div class="cookie-panel">
+    <h2 id="cookieTitle"></h2>
+    <p id="cookieDesc"></p>
+    <div class="cookie-top-row">
+      <a href={STATIC_PAGES['privacy-policy'][lang]} id="cookiePrivacyLink"></a>
+      <select id="cookieLang" onchange="window._cookieSetLang(this.value)">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+    <div class="cookie-options">
+      <label class="cookie-option"><div><strong id="cookieEssentialTitle"></strong><small id="cookieEssentialDesc"></small><em id="cookieEssentialRequired"></em></div><span class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></span></label>
+      <label class="cookie-option"><div><strong id="cookieAnalyzeTitle"></strong><small id="cookieAnalyzeDesc"></small></div><span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span></label>
+      <label class="cookie-option"><div><strong id="cookiePersonalizedTitle"></strong><small id="cookiePersonalizedDesc"></small></div><span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span></label>
+      <label class="cookie-option"><div><strong id="cookieMarketingTitle"></strong><small id="cookieMarketingDesc"></small></div><span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span></label>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn primary" id="btnAcceptAll"></button>
+      <button class="cookie-btn outline" id="btnStrictlyNecessary"></button>
+      <button class="cookie-btn outline" id="btnSaveSettings"></button>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import "../../styles/cookie.css";
+  .cookie-settings-btn { font-size: 16px; padding: 10px 30px; height: auto; width: auto; }
+</style>
+
+<script is:inline>
+  (async () => {
+    const res = await fetch('/data/cookie-i18n.json');
+    const translations = await res.json();
+
+    const ids = {
+      cookieTitle: 'title',
+      cookieDesc: 'desc',
+      cookiePrivacyLink: 'privacy',
+      cookieEssentialTitle: 'essentialTitle',
+      cookieEssentialDesc: 'essentialDesc',
+      cookieEssentialRequired: 'essentialRequired',
+      cookieAnalyzeTitle: 'analyzeTitle',
+      cookieAnalyzeDesc: 'analyzeDesc',
+      cookiePersonalizedTitle: 'personalizedTitle',
+      cookiePersonalizedDesc: 'personalizedDesc',
+      cookieMarketingTitle: 'marketingTitle',
+      cookieMarketingDesc: 'marketingDesc',
+      btnAcceptAll: 'acceptAll',
+      btnStrictlyNecessary: 'strictlyNecessary',
+      btnSaveSettings: 'saveSettings'
+    };
+
+    function getPreferredLang() {
+      if (translations[document.documentElement.lang]) return document.documentElement.lang;
+      const savedLang = localStorage.getItem('cookieLang');
+      if (savedLang && translations[savedLang]) return savedLang;
+      return 'ja';
+    }
+
+    function setLang(nextLang) {
+      const t = translations[nextLang];
+      if (!t) return;
+      const select = document.getElementById('cookieLang');
+      select.value = nextLang;
+      Object.entries(ids).forEach(([elId, key]) => {
+        const el = document.getElementById(elId);
+        if (el) el.textContent = t[key] || '';
+      });
+      const opts = document.querySelectorAll('#cookieLang option');
+      if (opts[0]) opts[0].textContent = t.langEn || 'English';
+      if (opts[1]) opts[1].textContent = t.langJa || '日本語';
+      if (opts[2]) opts[2].textContent = t.langZh || '中文';
+      if (window.jQuery && window.jQuery.fn && typeof window.jQuery.fn.niceSelect === 'function') {
+        window.jQuery(select).niceSelect('update');
+      }
+      localStorage.setItem('cookieLang', nextLang);
+    }
+
+    window._cookieSetLang = setLang;
+
+    document.getElementById('cookieSettingsBtn')?.addEventListener('click', () => {
+      const modal = document.getElementById('cookieModal');
+      modal.style.display = 'flex';
+      setLang(getPreferredLang());
+    });
+
+    document.querySelectorAll('#btnAcceptAll, #btnStrictlyNecessary, #btnSaveSettings').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('cookieModal').style.display = 'none';
+
+        const newLang = document.getElementById('cookieLang').value;
+        const path = window.location.pathname;
+        const pageMap = {
+          '/privacy-policy': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+          '/zh/privacy-policy': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+          '/ja/privacy-policy': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+          '/privacy-policy/': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+          '/zh/privacy-policy/': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+          '/ja/privacy-policy/': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+        };
+
+        const target = pageMap[path]?.[newLang];
+        if (target && target !== path) {
+          window.location.href = target;
+        }
+      });
+    });
+  })();
+</script>

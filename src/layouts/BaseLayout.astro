@@ -1,0 +1,130 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { LANGS, STATIC_PAGES, isStaticPage } from "../config/site";
+import { getTranslationsByContentId } from "../data/site.js";
+import "../styles/main.css";
+
+const {
+  lang,
+  currentContentId,
+  title,
+  description,
+  keywords,
+  preloadImages = []
+} = Astro.props;
+
+const siteUrl = 'https://grand-hope.com.cn';
+
+const alternates = {};
+if (currentContentId && isStaticPage(currentContentId)) {
+  for (const l of LANGS) {
+    alternates[l] = STATIC_PAGES[currentContentId][l];
+  }
+} else {
+  // 从翻译索引获取当前页面所有语言的 URL，用于构建 hreflang
+  const translations = getTranslationsByContentId(currentContentId);
+  if (translations) {
+    for (const l of LANGS) {
+      if (translations[l]?.link) {
+        alternates[l] = translations[l].link;
+      }
+    }
+  }
+}
+
+const canonical = alternates[lang] || `${siteUrl}/`;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title || 'Grand-Hope | Carbon Felt & Graphite Felt Manufacturer'}</title>
+    {description && <meta name="description" content={description} />}
+    {keywords && <meta name="keywords" content={keywords} />}
+
+    <!-- canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- hreflang -->
+    {alternates.en && <link rel="alternate" hreflang="en" href={alternates.en} />}
+    {alternates.zh && <link rel="alternate" hreflang="zh" href={alternates.zh} />}
+    {alternates.ja && <link rel="alternate" hreflang="ja" href={alternates.ja} />}
+    {alternates.en && <link rel="alternate" hreflang="x-default" href={alternates.en} />}
+
+    <link rel="dns-prefetch" href="https://img.grand-hope.com.cn" />
+    <link rel="preconnect" href="https://img.grand-hope.com.cn" crossorigin />
+    {preloadImages.map((href) => (
+      <link rel="preload" as="image" href={href} />
+    ))}
+
+    <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="/css/plugins/nouislider.min.css">
+    <link rel="stylesheet" href="/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="/css/vendor/odometer.min.css">
+    <link rel="stylesheet" href="/css/vendor/fontawesome-pro.css">
+    <link rel="stylesheet" href="/css/vendor/spacing.css">
+    <link rel="stylesheet" href="/css/vendor/remixicon.css">
+  </head>
+  
+  <body>
+    <Header lang={lang} currentContentId={currentContentId} />
+    <main><slot /></main>
+    <Footer lang={lang} />
+    <script is:inline defer src="/js/vendor/jquery-3.7.1.min.js"></script>
+    <script is:inline defer src="/js/plugins/waypoints.min.js"></script>
+    <script is:inline defer src="/js/vendor/bootstrap.bundle.min.js"></script>
+    <script is:inline defer src="/js/plugins/meanmenu.min.js"></script>
+    <script is:inline defer src="/js/plugins/swiper.min.js"></script>
+    <script is:inline defer src="/js/plugins/wow.min.js"></script>
+    <script is:inline defer src="/js/vendor/magnific-popup.min.js"></script>
+    <script is:inline defer src="/js/vendor/isotope.pkgd.min.js"></script>
+    <script is:inline defer src="/js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script is:inline defer src="/js/plugins/nice-select.min.js"></script>
+    <script is:inline defer src="/js/plugins/jarallax.min.js"></script>
+    <script is:inline defer src="/js/vendor/ajax-form.js"></script>
+    <script is:inline defer src="/js/plugins/easypie.js"></script>
+    <script is:inline defer src="/js/plugins/headding-title.js"></script>
+    <script is:inline defer src="/js/plugins/lenis.min.js"></script>
+    <script is:inline defer src="/js/plugins/gsap.min.js"></script>
+    <script is:inline defer src="/js/plugins/rs-anim-int.js"></script>
+    <script is:inline defer src="/js/plugins/rs-scroll-trigger.min.js"></script>
+    <script is:inline defer src="/js/plugins/rs-splitText.min.js"></script>
+    <script is:inline defer src="/js/plugins/jquery.lettering.js"></script>
+    <script is:inline defer src="/js/plugins/parallax-effect.min.js"></script>
+    <script is:inline defer src="/js/plugins/jquery.appear.min.js"></script>
+    <script is:inline defer src="/js/plugins/marquee.min.js"></script>
+    <script is:inline defer src="/js/plugins/chart.umd.min.js"></script>
+    <script is:inline defer src="/js/plugins/nouislider.min.js"></script>
+    <script is:inline defer src="/js/vendor/purecounter.js"></script>
+    <script is:inline defer src="/js/vendor/odometer.min.js"></script>
+    <script is:inline defer src="/js/main.js"></script>
+    <script is:inline define:vars={{ alternates, lang }}>
+      (() => {
+        const preferredLang = localStorage.getItem('cookieLang');
+        if (preferredLang && preferredLang !== lang && alternates?.[preferredLang]) {
+          const targetUrl = new URL(alternates[preferredLang], window.location.origin);
+          const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+          const targetPath = targetUrl.pathname.replace(/\/$/, '') || '/';
+          if (targetPath !== currentPath) {
+            window.location.replace(targetUrl.href);
+            return;
+          }
+        }
+
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest('a[data-lang-switch]');
+          if (!link) return;
+          const nextLang = link.getAttribute('data-lang-switch');
+          if (nextLang) {
+            localStorage.setItem('cookieLang', nextLang);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

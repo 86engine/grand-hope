@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import KnowledgeList from "../../components/KnowledgeList.astro";
+import { getKnowledge } from "../../data/knowledge.js";
+import { getKnowledgeCategory } from "../../data/parentKnowledge.js";
+import headerI18n from "../../../public/data/header-i18n.json" with { type: 'json' };
+
+const lang = 'ja';
+
+const [knowledgeList, pageData] = await Promise.all([
+  getKnowledge(lang),
+  getKnowledgeCategory(lang),
+]);
+
+const ui = headerI18n[lang] || headerI18n.en;
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="knowledgeList"
+  title={pageData.pageTitle}
+  description={pageData.pageDescription}
+  keywords={pageData.pageKeywords}
+>
+  <KnowledgeList lang={lang} knowledgeList={knowledgeList} pageData={pageData} ui={ui} />
+</BaseLayout>

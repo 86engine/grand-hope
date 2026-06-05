@@ -1,0 +1,71 @@
+---
+import PageBanner from "./PageBanner.astro";
+import { getPageURL, buildBreadcrumb } from "../data/site.js";
+
+const { lang, update, ui } = Astro.props;
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  if (lang === 'ja') return d.toLocaleDateString('ja-JP');
+  if (lang === 'zh') return d.toLocaleDateString('zh-CN');
+  return d.toLocaleDateString('en-US');
+}
+---
+
+<PageBanner
+  title={update.pageH1 || update.title}
+  breadcrumb={buildBreadcrumb(lang, [
+    { label: ui.updates, href: getPageURL('newsList', lang) },
+    { label: { en: 'Detail', zh: '详情', ja: '詳細' }[lang] || 'Detail' }
+  ])}
+  background="https://img.grand-hope.com.cn/system/grand-hope-news-banner.webp"
+/>
+
+<section class="rs-postbox-area section-space">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-xl-8 col-lg-8">
+        <div class="rs-postbox-details-wrapper">
+
+          {update.image && (
+            <div class="rs-postbox-details-thumb">
+              <img src={update.image} alt={update.title} />
+            </div>
+          )}
+
+          <div class="rs-postbox-content">
+            <div class="rs-postbox-meta-list">
+              <div class="rs-postbox-meta-item">
+                <span class="rs-meta-text">{ui.by} <a class="meta-author" href={getPageURL(update.content_id, lang)}>{update.author}</a></span>
+              </div>
+              <div class="rs-postbox-meta-item">
+                <span class="rs-postbox-meta-text">{formatDate(update.date)}</span>
+              </div>
+            </div>
+            <h3 class="rs-postbox-details-title">{update.title}</h3>
+          </div>
+
+          <div class="rs-postbox-details-content" set:html={update.content} />
+
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-4">
+        <div class="rs-sidebar-wrapper rs-sidebar-sticky">
+          <div class="sidebar-widget widget-categories-two mb-30">
+            <h5 class="sidebar-widget-title">{ui.recommended}</h5>
+            <div class="sidebar-widget-content">
+              <div class="list">
+                <ul>
+                  <li>
+                    <a href={getPageURL(update.content_id, lang)}>{update.title}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

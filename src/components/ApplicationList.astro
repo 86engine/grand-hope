@@ -1,0 +1,111 @@
+---
+import PageBanner from "./PageBanner.astro";
+import { getPageURL, buildBreadcrumb } from "../data/site.js";
+
+const { lang, applications, applicationCategories, ui } = Astro.props;
+---
+
+<PageBanner
+  title={applicationCategories.pageH1}
+  breadcrumb={buildBreadcrumb(lang, [
+    { label: ui.applications }
+  ])}
+  background={applicationCategories.pageBackground || "https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-uses-banner.webp"}
+/>
+
+<section class="rs-feature-area section-space-top rs-feature-two">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-9 col-lg-9 col-md-10">
+        <div class="rs-section-title-wrapper text-center">
+          <h2 class="rs-section-subtitle has-theme-blue">{applicationCategories.pageModuleOneTitle}</h2>
+          <div class="rs-section-title has-theme-blue rs-size rich-text mb-30">
+            <p style="font-size:24px;line-height:36px;color:#0C3C61;font-weight:700"
+               set:html={applicationCategories.pageModuleOneDescription} />
+          </div>
+          <h2 class="rs-section-subtitle has-theme-blue">{applicationCategories.pageModuleTwoTitle}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rs-portfolio-area rs-portfolio-two pt-40 pb-40">
+  <div class="container">
+    <div class="row g-5">
+      {applications.map(application => {
+        const detailUrl = getPageURL(application.content_id, lang) || '#';
+        return (
+          <div class="col-xl-4 col-lg-4 col-md-6">
+            <div class="rs-portfolio-item">
+              <div class="rs-portfolio-thumb">
+                <a href={detailUrl}>
+                  <img src={application.acf?.application_category_img?.url || application.acf?.application_category_img} loading="lazy" decoding="async" alt={application.acf?.application_name} />
+                </a>
+                <div class="rs-portfolio-content">
+                  <div class="rs-portfolio-tag">
+                    <a href={detailUrl}>{ui.applications}</a>
+                  </div>
+                  <div class="rs-portfolio-title-info">
+                    <h5 class="rs-portfolio-title">
+                      <a href={detailUrl}>{application.applicationName}</a>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<section class="rs-services-area section-space">
+  <div class="container">
+    <div class="rs-services-details-wrapper">
+      {applicationCategories.blocks && applicationCategories.blocks.length > 0 && (
+        applicationCategories.blocks.map((block, index) => (
+          <>
+            {block.title && (
+              <h2 class="rs-section-subtitle has-theme-blue" style="justify-content:left;margin-bottom:30px">{block.title}</h2>
+            )}
+            {block.description && block.image && (
+              <div class="detail-left__html" style="margin-bottom:30px">
+                <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 25px;">
+                  {index % 2 === 0 ? (
+                    <>
+                      <div style="flex: 1 1 55%; min-width: 280px;" set:html={block.description} />
+                      <div style="flex: 0 0 45%; max-width: 45%;">
+                        <img src={block.image} alt={block.title || ''} style="border-radius: 24px; width: 100%;" />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div style="flex: 0 0 45%; max-width: 45%;">
+                        <img src={block.image} alt={block.title || ''} style="border-radius: 24px; width: 100%;" />
+                      </div>
+                      <div style="flex: 1 1 55%; min-width: 280px;" set:html={block.description} />
+                    </>
+                  )}
+                </div>
+              </div>
+            )}
+            {block.description && !block.image && (
+              <div class="detail-left__html" style="margin-bottom:30px" set:html={block.description} />
+            )}
+            {block.bottomText && (
+              <div class="detail-left__html" style="margin-bottom:30px" set:html={block.bottomText} />
+            )}
+          </>
+        ))
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+.rs-services-details-wrapper {
+  margin-top: -120px;
+}
+</style>

@@ -1,0 +1,165 @@
+---
+import PageBanner from "./PageBanner.astro";
+import { getPageURL, buildBreadcrumb } from "../data/site.js";
+
+const { lang, updates, ui, currentPage, totalPages } = Astro.props;
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  if (lang === 'ja') return d.toLocaleDateString('ja-JP');
+  if (lang === 'zh') return d.toLocaleDateString('zh-CN');
+  return d.toLocaleDateString('en-US');
+}
+---
+
+<PageBanner
+  title={ui.updates}
+  breadcrumb={buildBreadcrumb(lang, [
+    { label: ui.updates }
+  ])}
+  background="https://img.grand-hope.com.cn/system/grand-hope-updates-banner.webp"
+/>
+
+<section class="rs-postbox-area section-space">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-xl-8 col-lg-8">
+        <div class="rs-postbox-wrapper">
+          {updates.map(update => {
+            const detailUrl = getPageURL(update.content_id, lang) || '#';
+            return (
+              <article class="rs-postbox-item">
+                <div class="rs-postbox-thumb">
+                  <a href={detailUrl}>
+                    <img src={update.image} alt={update.title} />
+                  </a>
+                  <div class="rs-postbox-tag">
+                    <a href={detailUrl}>{update.category}</a>
+                  </div>
+                </div>
+                <div class="rs-postbox-content">
+                  <div class="rs-postbox-meta-list">
+                    <div class="rs-postbox-meta-item">
+                      <span class="rs-meta-text">{ui.by} <a class="meta-author" href={detailUrl}>{update.author}</a></span>
+                    </div>
+                    <div class="rs-postbox-meta-item">
+                      <span class="rs-postbox-meta-text"><a href={detailUrl}>{formatDate(update.date)}</a></span>
+                    </div>
+                  </div>
+                  <h3 class="rs-postbox-title">
+                    <a href={detailUrl}>{update.title}</a>
+                  </h3>
+                  <div class="rs-postbox-text">
+                    <p>{update.summary}</p>
+                  </div>
+                  <div class="rs-postbox-btn">
+                    <a class="rs-btn has-theme-blue has-icon has-bg" href={detailUrl}>
+                      {ui.continueReading}
+                      <span class="icon-box">
+                        <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                          <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"></path>
+                        </svg>
+                        <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                          <path d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z"></path>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+{totalPages > 1 && (
+  <div class="common-pagination">
+    <nav>
+      <ul>
+        {currentPage > 1 && (
+          <li><a href={`${lang === 'en' ? '' : '/' + lang}/carbon-felt-insights/page/${currentPage - 1}`}>← {ui.prev}</a></li>
+        )}
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+          <li>
+            <a 
+              href={`${lang === 'en' ? '' : '/' + lang}/carbon-felt-insights/page/${p}`}
+              class:list={[p === currentPage ? 'current' : '']}
+            >
+              {p}
+            </a>
+          </li>
+        ))}
+        {currentPage < totalPages && (
+          <li><a href={`${lang === 'en' ? '' : '/' + lang}/carbon-felt-insights/page/${currentPage + 1}`}>{ui.next} →</a></li>
+        )}
+      </ul>
+    </nav>
+  </div>
+)}
+      </div>
+
+      <div class="col-xl-4 col-lg-4">
+        <div class="rs-sidebar-wrapper rs-sidebar-sticky">
+          <div class="sidebar-widget mb-30">
+            <div class="sidebar-search">
+              <form action="#">
+                <div class="sidebar-search-input">
+                  <input type="text" placeholder={ui.search}>
+                  <button type="submit">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.11111 15.2222C12.0385 15.2222 15.2222 12.0385 15.2222 8.11111C15.2222 4.18375 12.0385 1 8.11111 1C4.18375 1 1 4.18375 1 8.11111C1 12.0385 4.18375 15.2222 8.11111 15.2222Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16.9995 17L13.1328 13.1333" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="sidebar-widget widget-categories-two mb-30">
+            <h5 class="sidebar-widget-title">{ui.categories}</h5>
+            <div class="sidebar-widget-content">
+              <div class="list">
+                <ul>
+                  {[...new Set(updates.map(u => u.category).filter(Boolean))].map(cat => (
+                    <li>
+                      <a href={`?category=${cat}`}>{cat} <i class="ri-arrow-right-line"></i></a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-widget mb-30">
+            <h5 class="sidebar-widget-title">{ui.latestPosts}</h5>
+            <div class="sidebar-widget-content">
+              <div class="sidebar-blog-item-wrapper">
+                {updates.slice(0, 4).map(update => {
+                  const detailUrl = getPageURL(update.content_id, lang) || '#';
+                  return (
+                    <div class="sidebar-blog-item">
+                      <div class="sidebar-blog-thumb">
+                        <a href={detailUrl}>
+                          <img src={update.image} alt={update.title} />
+                        </a>
+                      </div>
+                      <div class="sidebar-blog-content">
+                        <h6 class="sidebar-blog-title">
+                          <a href={detailUrl}>{update.title}</a>
+                        </h6>
+                        <div class="sidebar-blog-meta">
+                          <i class="ri-calendar-line"></i>
+                          <span>{formatDate(update.date)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

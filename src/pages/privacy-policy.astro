@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { STATIC_PAGES } from "../config/site";
+import { buildBreadcrumb } from "../data/site.js";
+
+const lang = 'en';
+
+const title = 'Cookie Policy | Grand-Hope';
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="privacy-policy"
+  title={title}
+>
+  <section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">
+    <div class="rs-breadcrumb-bg" style="background-image: url('https://img.grand-hope.com.cn/system/grand-hope-cookie-banner.webp');"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-6 col-xl-8 col-lg-8">
+          <div class="rs-breadcrumb-content-wrapper">
+            <div class="rs-breadcrumb-title-wrapper">
+              <h1 class="rs-breadcrumb-title">Cookie Policy</h1>
+            </div>
+            <div class="rs-breadcrumb-menu">
+              <nav>
+                <ul>
+                  {buildBreadcrumb(lang, [{ label: 'Cookie Policy' }]).map((item, i) => (
+                    <li><span>
+                      {item.href ? <a href={item.href}>{item.label}</a> : item.label}
+                    </span></li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rs-postbox-area section-space">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-xl-8 col-lg-8 cookie-content" style="margin:0 auto;float:none;">
+          <div class="rs-postbox-details-wrapper content">
+            <p class="last-updated">last updated: 2026-04-18</p>
+            <section><h2>1. What is a Cookie?</h2><p>Cookies are small text files that are stored on your device (computer, smartphone, tablet, etc.) when you browse most websites. Except in some cases, cookies require your consent to be stored on your device.</p><p>You can manage your preferences by changing all or some of the cookie settings below. You can also allow or disable all cookies.</p></section>
+            <section><h2>2. What information do we collect?</h2><p>The cookies we store on your device with your consent enable us to collect the following information:</p><h3>2.1 Information related to the device you are using:</h3><ul><li>The type of device you are using (smartphone, tablet, computer, etc.);</li><li>The operating system of your device (macOS, iOS, Android, Windows, BlackBerry, etc.);</li><li>The type and version of plug-ins for your device;</li><li>The browser used (Safari, Chrome, Internet Explorer, etc.);</li><li>The IP address of your device;</li><li>Your device's geolocation data;</li><li>Your language preference.</li></ul><h3>2.2 Browsing and user behavior data:</h3><ul><li>Traffic statistics for individual pages of our website;</li><li>The full URL paths to, through and from our site;</li><li>Details of any advertisements that have been served to you;</li><li>Your interaction with those ads;</li><li>The action you took after clicking on an ad;</li><li>The number of times you have received placed advertisements;</li><li>Personal information related to your activities online.</li></ul></section>
+            <section><h2>3. Basic Cookies</h2><p>These cookies are necessary for the proper functioning of the website. Their settings cannot be changed.</p><p>These basic cookies do not require your consent.</p></section>
+            <section><h2>4. Performance Cookies</h2><p>These cookies count and analyze the number of visitors to our website in order to improve the performance of the site.</p><p>These cookies require your prior consent.</p></section>
+            <section><h2>5. Advertising and Social Media Cookies</h2><p>These cookies are used to customize our advertisements on third-party websites based on your preferences.</p><p>These cookies require your prior consent.</p></section>
+            <section><h2>6. Third Party Cookies</h2><p>As our website contains third-party applications, our partners may set cookies.</p><p>These cookies require your prior consent.</p></section>
+            <section><h2>7. What are these cookies used for and how long are they stored?</h2>
+              <div class="table-responsive">
+                <table class="cookie-table">
+                  <thead><tr><th>Type of Cookie</th><th>Name</th><th>Purpose</th><th>Cookie Duration</th></tr></thead>
+                  <tbody><tr><td>Basic Cookie</td><td>Cookie consent</td><td>Checks if the user has accepted cookies</td><td>100 days</td></tr><tr><td>Performance Cookie</td><td></td><td>Google Analytics session ID storage</td><td>2 years</td></tr><tr><td>Advertising Cookie</td><td>Cookie consent to Google</td><td>Checks if user agrees to Google's policies</td><td>1 year</td></tr></tbody>
+                </table>
+              </div>
+            </section>
+            <section><h2>8. Your Cookie Preferences</h2><p>We collect and process your data on this website to better understand its use. We will always ask for your consent. You can change your privacy settings here.</p><p>In addition, you can block the setting of cookies by adjusting your browser settings. Please note that disabling cookies will affect the functionality of this website as well as many other websites you visit.</p>
+              <button id="cookieSettingsBtn" class="rs-btn blue-bg cookie-settings-btn">Settings</button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!-- Cookie 弹窗 -->
+<div class="cookie-overlay" id="cookieModal" style="display:none;">
+  <div class="cookie-panel">
+    <h2 id="cookieTitle"></h2>
+    <p id="cookieDesc"></p>
+    <div class="cookie-top-row">
+      <a href={STATIC_PAGES['privacy-policy'][lang]} id="cookiePrivacyLink"></a>
+      <select id="cookieLang" onchange="window._cookieSetLang(this.value)">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+    <div class="cookie-options">
+      <label class="cookie-option"><div><strong id="cookieEssentialTitle"></strong><small id="cookieEssentialDesc"></small><em id="cookieEssentialRequired"></em></div><span class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></span></label>
+      <label class="cookie-option"><div><strong id="cookieAnalyzeTitle"></strong><small id="cookieAnalyzeDesc"></small></div><span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span></label>
+      <label class="cookie-option"><div><strong id="cookiePersonalizedTitle"></strong><small id="cookiePersonalizedDesc"></small></div><span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span></label>
+      <label class="cookie-option"><div><strong id="cookieMarketingTitle"></strong><small id="cookieMarketingDesc"></small></div><span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span></label>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn primary" id="btnAcceptAll"></button>
+      <button class="cookie-btn outline" id="btnStrictlyNecessary"></button>
+      <button class="cookie-btn outline" id="btnSaveSettings"></button>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import "../styles/cookie.css";
+  .cookie-settings-btn { font-size: 16px; padding: 10px 30px; height: auto; width: auto; }
+</style>
+
+<script is:inline>
+  (async () => {
+    const res = await fetch('/data/cookie-i18n.json');
+    const translations = await res.json();
+
+    const ids = {
+      cookieTitle: 'title',
+      cookieDesc: 'desc',
+      cookiePrivacyLink: 'privacy',
+      cookieEssentialTitle: 'essentialTitle',
+      cookieEssentialDesc: 'essentialDesc',
+      cookieEssentialRequired: 'essentialRequired',
+      cookieAnalyzeTitle: 'analyzeTitle',
+      cookieAnalyzeDesc: 'analyzeDesc',
+      cookiePersonalizedTitle: 'personalizedTitle',
+      cookiePersonalizedDesc: 'personalizedDesc',
+      cookieMarketingTitle: 'marketingTitle',
+      cookieMarketingDesc: 'marketingDesc',
+      btnAcceptAll: 'acceptAll',
+      btnStrictlyNecessary: 'strictlyNecessary',
+      btnSaveSettings: 'saveSettings'
+    };
+
+    function getPreferredLang() {
+      if (translations[document.documentElement.lang]) return document.documentElement.lang;
+      const savedLang = localStorage.getItem('cookieLang');
+      if (savedLang && translations[savedLang]) return savedLang;
+      return 'en';
+    }
+
+    function setLang(nextLang) {
+      const t = translations[nextLang];
+      if (!t) return;
+      const select = document.getElementById('cookieLang');
+      select.value = nextLang;
+      Object.entries(ids).forEach(([elId, key]) => {
+        const el = document.getElementById(elId);
+        if (el) el.textContent = t[key] || '';
+      });
+      const opts = document.querySelectorAll('#cookieLang option');
+      if (opts[0]) opts[0].textContent = t.langEn || 'English';
+      if (opts[1]) opts[1].textContent = t.langJa || '日本語';
+      if (opts[2]) opts[2].textContent = t.langZh || '中文';
+      if (window.jQuery && window.jQuery.fn && typeof window.jQuery.fn.niceSelect === 'function') {
+        window.jQuery(select).niceSelect('update');
+      }
+      localStorage.setItem('cookieLang', nextLang);
+    }
+
+    window._cookieSetLang = setLang;
+
+    document.getElementById('cookieSettingsBtn')?.addEventListener('click', () => {
+      const modal = document.getElementById('cookieModal');
+      modal.style.display = 'flex';
+      setLang(getPreferredLang());
+    });
+
+    document.querySelectorAll('#btnAcceptAll, #btnStrictlyNecessary, #btnSaveSettings').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('cookieModal').style.display = 'none';
+        const newLang = document.getElementById('cookieLang').value;
+        const path = window.location.pathname;
+        const pageMap = {
+          '/privacy-policy': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+          '/zh/privacy-policy': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+          '/ja/privacy-policy': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
+        };
+        const target = pageMap[path]?.[newLang];
+        if (target && target !== path) window.location.href = target;
+      });
+    });
+  })();
+</script>

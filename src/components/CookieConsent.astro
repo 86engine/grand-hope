@@ -1,0 +1,145 @@
+---
+// src/components/CookieConsent.astro
+import { STATIC_PAGES } from "../config/site";
+const { lang } = Astro.props;
+---
+
+<div class="cookie-overlay" id="cookieConsentModal" style="display:none;">
+  <div class="cookie-panel">
+    <h2 id="cookieConsentTitle"></h2>
+    <p id="cookieConsentDesc"></p>
+    <div class="cookie-top-row">
+      <a href={STATIC_PAGES['privacy-policy'][lang]} id="cookieConsentPrivacyLink"></a>
+      <select id="cookieConsentLang" onchange="window._cookieSetLang(this.value)">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
+    <div class="cookie-options">
+      <label class="cookie-option">
+        <div><strong id="cookieConsentEssentialTitle"></strong><small id="cookieConsentEssentialDesc"></small><em id="cookieConsentEssentialRequired"></em></div>
+        <span class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></span>
+      </label>
+      <label class="cookie-option">
+        <div><strong id="cookieConsentAnalyzeTitle"></strong><small id="cookieConsentAnalyzeDesc"></small></div>
+        <span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span>
+      </label>
+      <label class="cookie-option">
+        <div><strong id="cookieConsentPersonalizedTitle"></strong><small id="cookieConsentPersonalizedDesc"></small></div>
+        <span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span>
+      </label>
+      <label class="cookie-option">
+        <div><strong id="cookieConsentMarketingTitle"></strong><small id="cookieConsentMarketingDesc"></small></div>
+        <span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span>
+      </label>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn primary" id="btnConsentAcceptAll"></button>
+      <button class="cookie-btn outline" id="btnConsentStrictlyNecessary"></button>
+      <button class="cookie-btn outline" id="btnConsentSaveSettings"></button>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import "../styles/cookie.css";
+</style>
+
+<script is:inline>
+  const initCookieConsent = async () => {
+    // 检查是否已经处理过
+    if (localStorage.getItem('cookieConsent')) return;
+
+    const res = await fetch('/data/cookie-i18n.json');
+    const translations = await res.json();
+
+    const ids = {
+      cookieConsentTitle: 'title',
+      cookieConsentDesc: 'desc',
+      cookieConsentPrivacyLink: 'privacy',
+      cookieConsentEssentialTitle: 'essentialTitle',
+      cookieConsentEssentialDesc: 'essentialDesc',
+      cookieConsentEssentialRequired: 'essentialRequired',
+      cookieConsentAnalyzeTitle: 'analyzeTitle',
+      cookieConsentAnalyzeDesc: 'analyzeDesc',
+      cookieConsentPersonalizedTitle: 'personalizedTitle',
+      cookieConsentPersonalizedDesc: 'personalizedDesc',
+      cookieConsentMarketingTitle: 'marketingTitle',
+      cookieConsentMarketingDesc: 'marketingDesc',
+      btnConsentAcceptAll: 'acceptAll',
+      btnConsentStrictlyNecessary: 'strictlyNecessary',
+      btnConsentSaveSettings: 'saveSettings',
+    };
+
+    const langSelect = document.getElementById('cookieConsentLang');
+    const opts = langSelect.querySelectorAll('option');
+
+    function getPreferredLang() {
+      const savedLang = localStorage.getItem('cookieLang');
+      if (savedLang && translations[savedLang]) return savedLang;
+      const pageLang = document.documentElement.lang || 'en';
+      if (translations[pageLang]) return pageLang;
+      return 'en';
+    }
+
+    function setLang(nextLang) {
+      const t = translations[nextLang];
+      if (!t) return;
+      langSelect.value = nextLang;
+      Object.entries(ids).forEach(([elId, key]) => {
+        const el = document.getElementById(elId);
+        if (el) el.textContent = t[key] || '';
+      });
+      opts[0].textContent = t.langEn || 'English';
+      opts[1].textContent = t.langJa || '日本語';
+      opts[2].textContent = t.langZh || '中文';
+      localStorage.setItem('cookieLang', nextLang);
+    }
+
+    window._cookieSetLang = setLang;
+    const preferredLang = getPreferredLang();
+    setLang(preferredLang);
+    // 显示弹窗
+    document.getElementById('cookieConsentModal').style.display = 'flex';
+    // 三个按钮
+    const langMap = {
+  '/': { en: '/', zh: '/zh/', ja: '/ja/' },
+  '/zh/': { en: '/', zh: '/zh/', ja: '/ja/' },
+  '/ja/': { en: '/', zh: '/zh/', ja: '/ja/' },
+};
+
+    document.querySelectorAll('#btnConsentAcceptAll, #btnConsentStrictlyNecessary, #btnConsentSaveSettings').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('cookieConsentModal').style.display = 'none';
+        localStorage.setItem('cookieConsent', '1');
+
+        const newLang = langSelect.value;
+        const path = window.location.pathname;
+        const target = langMap[path]?.[newLang];
+        if (target && target !== path) {
+          window.location.href = target;
+        }
+      });
+    });
+  };
+
+  const scheduleCookieConsent = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        initCookieConsent();
+      }, { timeout: 1500 });
+      return;
+    }
+
+    window.setTimeout(() => {
+      initCookieConsent();
+    }, 300);
+  };
+
+  if (document.readyState === 'complete') {
+    scheduleCookieConsent();
+  } else {
+    window.addEventListener('load', scheduleCookieConsent, { once: true });
+  }
+</script>

@@ -1,0 +1,244 @@
+---
+import { buildBreadcrumb } from "../data/site.js";
+import aboutHistoryI18n from "../../public/data/about-history-i18n.json" with { type: 'json' };
+
+const { lang, about, ui } = Astro.props;
+const history = aboutHistoryI18n[lang] || aboutHistoryI18n.en;
+---
+
+<section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">
+  <div class="rs-breadcrumb-bg" style={`background-image: url(${about.pageBackground || 'https://img.grand-hope.com.cn/system/about-grand-hope-banner.webp'});`}></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xxl-6 col-xl-8 col-lg-8">
+        <div class="rs-breadcrumb-content-wrapper">
+          <div class="rs-breadcrumb-title-wrapper">
+            <h1 class="rs-breadcrumb-title">{about.pageH1 || ui.about}</h1>
+          </div>
+          <div class="rs-breadcrumb-menu">
+            <nav>
+              <ul>
+                {buildBreadcrumb(lang, [{ label: ui.about }]).map((item, i) => (
+                  <li><span>
+                    {item.href ? <a href={item.href}>{item.label}</a> : item.label}
+                  </span></li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rs-about-area rs-about-twelve section-space-bottom mt-110">
+  <div class="container">
+    <div class="row g-5 justify-content-center section-title-space align-items-center">
+      <div class="col-xxl-8 col-xl-9 col-lg-9">
+        <div class="rs-section-title-wrapper text-center">
+          <span class="rs-section-subtitle has-theme-blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+              <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z" fill="#EA5501"></path>
+            </svg> {ui.aboutLabel}
+          </span>
+          <h2 class="rs-section-title">{ui.aboutTitle}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row g-5">
+      <div class="col-xl-6 col-lg-6">
+        <div class="rs-about-wrapper">
+          <div class="rs-about-shape">
+            <img src="https://img.grand-hope.com.cn/system/about-shape-06.png" loading="lazy" decoding="async" alt="about">
+          </div>
+          <div class="rs-about-thumb">
+            <img src="https://img.grand-hope.com.cn/system/grand-hope-working-20260603.webp" loading="lazy" decoding="async" alt="about_01">
+          </div>
+          <div class="rs-about-content">
+            <h6 class="rs-about-title">{ui.missionTitle}</h6>
+            <p>{ui.missionDesc}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6">
+        <div class="rs-about-wrapper">
+          <div class="rs-about-shape">
+            <img src="https://img.grand-hope.com.cn/system/about-shape-07.png" loading="lazy" decoding="async" alt="about">
+          </div>
+          <div class="rs-about-thumb">
+            <img src="https://img.grand-hope.com.cn/system/grand-hope-working-20260604.webp" loading="lazy" decoding="async" alt="about_02">
+          </div>
+          <div class="rs-about-content">
+            <h6 class="rs-about-title">{ui.visionTitle}</h6>
+            <p>{ui.visionDesc}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rs-history-area section-space rs-history-one">
+  <div class="rs-history-bg-thumb" data-background="https://img.grand-hope.com.cn/system/tab-bg-01.jpg" style="background-image: url('https://img.grand-hope.com.cn/system/tab-bg-01.jpg');"></div>
+  <div class="container">
+    <div class="row g-5 justify-content-center section-title-space align-items-center">
+      <div class="col-xxl-6 col-xl-6 col-lg-6">
+        <div class="rs-section-title-wrapper text-center">
+          <span class="rs-section-subtitle has-theme-blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+              <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z" fill="#EA5501"></path>
+            </svg>
+            {history.sectionTitle}
+          </span>
+          <h2 class="rs-section-title">{history.sectionHeading}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xxl-10 col-xl-10">
+        <div class="rs-history-tab-wrapper">
+          <div class="rs-history-tab">
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+              {history.tabs.map((tab, i) => (
+                <li class="nav-item" role="presentation">
+                  <button class={`nav-link${i === 0 ? ' active' : ''}`} id={`pills-item-${i + 1}-tab`} data-bs-toggle="pill" data-bs-target={`#pills-item-${i + 1}`} type="button" role="tab" aria-controls={`pills-item-${i + 1}`} aria-selected={i === 0 ? 'true' : 'false'}>
+                    {tab.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="rs-history-tab-content-wrapper">
+            <div class="tab-content rs-history-tab-anim" id="pills-tabContent">
+              {history.tabs.map((tab, i) => (
+                <div class={`tab-pane fade${i === 0 ? ' show active' : ''}`} id={`pills-item-${i + 1}`} role="tabpanel" aria-labelledby={`pills-item-${i + 1}-tab`} tabindex="0">
+                  <div class="rs-history-tab-item">
+                    <div class="rs-history-tab-thumb">
+                      <img src={tab.image} loading="lazy" decoding="async" alt={tab.title}>
+                    </div>
+                    <div class="rs-history-tab-content">
+                      <h5 class="rs-history-tab-title">{tab.title}</h5>
+                      <p>{tab.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{about.blocks && about.blocks.length > 0 && (
+  <section class="rs-services-area section-space">
+    <div class="container">
+      <div class="rs-services-details-wrapper">
+        {about.blocks.map((block, index) => (
+          <>
+            {block.type === 'video' ? (
+              <>
+                {block.title && (
+                  <h2 class="rs-section-subtitle has-theme-blue" style="justify-content:left;margin-bottom:30px">{block.title}</h2>
+                )}
+                {block.topText && <div set:html={block.topText} />}
+                <section class="rs-why-choose-area section-space rs-why-choose-one pt-0 pb-0">
+                  <div class="container">
+                    <div class="row align-items-xl-center g-5">
+                      <div class="col-12 px-0">
+                        <div style="position:relative;width:100%;">
+                          <img src={block.videoImg} alt="video cover" style="width:100%;height:330px;object-fit:cover;display:block;" />
+                          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                            <a href={block.video} class="rs-play-btn popup-video has-theme-blue"><i class="ri-play-fill"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                {block.bottomText && <div set:html={block.bottomText} />}
+              </>
+            ) : block.type === 'carousel' ? (
+              <>
+                {block.title && (
+                  <h2 class="rs-section-subtitle has-theme-blue" style="justify-content:left;margin-bottom:30px">{block.title}</h2>
+                )}
+                {block.topText && <div set:html={block.topText} />}
+                <section class="rs-services-area section-space rs-services-nine rs-swiper pt-0 pb-0 px-0">
+                  <div class="container">
+                    <div class="col-12">
+                      <div class="rs-services-slider-wrapper">
+                        <div class="swiper" data-clone-slides="false" data-loop="false" data-speed="2000" data-autoplay="true" data-dots-dynamic="false" data-hover-pause="true" data-effect="false" data-delay="1000" data-item="3" data-item-xl="2" data-item-lg="2" data-item-md="2" data-item-sm="1" data-item-xs="1" data-item-mobile="1" data-margin="30">
+                          <div class="swiper-wrapper process-counts">
+                            {block.images && block.images.map((img, i) => (
+                              <div class="swiper-slide">
+                                <div class="rs-services-item">
+                                  <div class="rs-services-thumb" style="margin-top: 30px;">
+                                    <img src={typeof img === 'string' ? img : img.url || img.sizes?.large} alt={`${block.title || ''} ${i + 1}`} />
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          <div class="rs-services-pagination">
+                            <div class="swiper-pagination rs-pagination has-theme-blue"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                {block.bottomText && <div set:html={block.bottomText} />}
+              </>
+            ) : (
+              <>
+                {block.title && (
+                  <h2 class="rs-section-subtitle has-theme-blue" style="justify-content:left;margin-bottom:30px">{block.title}</h2>
+                )}
+                {block.topText && (
+                  <div class="detail-left__html" style="margin-bottom:30px" set:html={block.topText} />
+                )}
+                {block.image && block.middleText && (
+                  <div class="detail-left__html" style="margin-bottom:30px">
+                    <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 25px;">
+                      {index % 2 === 0 ? (
+                        <>
+                          <div style="flex: 1 1 55%; min-width: 280px;" set:html={block.middleText} />
+                          <div style="flex: 0 0 45%; max-width: 45%;">
+                            <img src={block.image} alt={block.title || ''} style="border-radius: 24px; width: 100%;" />
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div style="flex: 0 0 45%; max-width: 45%;">
+                            <img src={block.image} alt={block.title || ''} style="border-radius: 24px; width: 100%;" />
+                          </div>
+                          <div style="flex: 1 1 55%; min-width: 280px;" set:html={block.middleText} />
+                        </>
+                      )}
+                    </div>
+                  </div>
+                )}
+                {block.image && !block.middleText && (
+                  <div class="rs-services-details-thumb mt-25 mb-25">
+                    <img src={block.image} alt={block.title || ''} />
+                  </div>
+                )}
+                {!block.image && block.middleText && (
+                  <div class="detail-left__html" style="margin-bottom:30px" set:html={block.middleText} />
+                )}
+                {block.bottomText && (
+                  <div class="detail-left__html" style="margin-bottom:30px" set:html={block.bottomText} />
+                )}
+              </>
+            )}
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

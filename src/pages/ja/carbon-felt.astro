@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProductList from "../../components/ProductList.astro";
+import { getProducts } from "../../data/products.js";
+import { getProductCategories } from "../../data/productCategories.js";
+import headerI18n from "../../../public/data/header-i18n.json" with { type: 'json' };
+
+const lang = 'ja';
+
+const [products, productCategories] = await Promise.all([
+  getProducts(lang),
+  getProductCategories(lang),
+]);
+
+const ui = headerI18n[lang] || headerI18n.en;
+// 补充 ProductList 需要的字段（如果 header-i18n 中没有）
+ui.viewDetail = { en: 'View Details', zh: '查看详情', ja: '詳細を見る' }[lang] || 'View Details';
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="productList"
+  title={productCategories.pageTitle}
+  description={productCategories.pageDescription}
+  keywords={productCategories.pageKeywords}
+>
+  <ProductList lang={lang} products={products} productCategories={productCategories} ui={ui} />
+</BaseLayout>

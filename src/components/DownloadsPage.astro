@@ -1,0 +1,154 @@
+---
+import { STATIC_PAGES } from "../config/site";
+import { buildBreadcrumb } from "../data/site.js";
+
+const { lang, ui } = Astro.props;
+---
+
+<section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">
+  <div class="rs-breadcrumb-bg" style="background-image: url('https://img.grand-hope.com.cn/wp-content/uploads/2026/05/about-grand-hope-banner.webp');"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xxl-6 col-xl-8 col-lg-8">
+        <div class="rs-breadcrumb-content-wrapper">
+          <div class="rs-breadcrumb-title-wrapper">
+            <h1 class="rs-breadcrumb-title">{ui.pageTitle}</h1>
+          </div>
+          <div class="rs-breadcrumb-menu">
+            <nav>
+              <ul>
+                {buildBreadcrumb(lang, [{ label: ui.pageTitle }]).map((item, i) => (
+                  <li><span>
+                    {item.href ? <a href={item.href}>{item.label}</a> : item.label}
+                  </span></li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rs-download-area section-space">
+  <div class="container">
+    <div class="row justify-content-center section-title-space">
+      <div class="col-xl-7 col-lg-8 text-center">
+        <h2 class="rs-section-title">{ui.heading}</h2>
+        <p class="mt-10">{ui.subheading}</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      {ui.cards.map(card => (
+        <div class="col-xl-3 col-lg-6 col-md-6">
+          <div class="download-card">
+            <div class="download-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0C3C61" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="12" x2="12" y2="18"/>
+                <polyline points="9 15 12 18 15 15"/>
+              </svg>
+            </div>
+            <h5>{card.title}</h5>
+            <p>{card.desc}</p>
+            <span class="download-date">{card.date}</span>
+            <a href={card.url} target="_blank" download class="download-btn">
+              {ui.downloadBtn}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .download-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(12, 60, 97, 0.06);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .download-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(12, 60, 97, 0.12);
+    border-color: rgba(12, 60, 97, 0.15);
+  }
+  .download-card-icon {
+    width: 72px;
+    height: 72px;
+    background: rgba(12, 60, 97, 0.06);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.35s ease;
+  }
+  .download-card:hover .download-card-icon {
+    background: rgba(12, 60, 97, 0.12);
+    transform: scale(1.05);
+  }
+  .download-card h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--rs-theme-blue);
+    margin-bottom: 8px;
+  }
+  .download-card p {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    flex: 1;
+  }
+  .download-date {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .download-date::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #0C3C61;
+    display: inline-block;
+  }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--rs-theme-blue);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .download-btn:hover {
+    background: #0a4d7a;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(12, 60, 97, 0.25);
+  }
+</style>

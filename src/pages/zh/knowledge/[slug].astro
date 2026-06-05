@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import KnowledgeDetail from "../../../components/KnowledgeDetail.astro";
+import { getKnowledge } from "../../../data/knowledge.js";
+import headerI18n from "../../../../public/data/header-i18n.json" with { type: 'json' };
+
+export async function getStaticPaths() {
+  const all = await getKnowledge('zh');
+  return all.map(k => ({
+    params: { slug: k.id },
+    props: { knowledge: k }
+  }));
+}
+
+const lang = 'zh';
+const { knowledge } = Astro.props;
+
+if (!knowledge) return Astro.redirect('/knowledge');
+
+const ui = headerI18n[lang] || headerI18n.en;
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId={knowledge.content_id}
+  title={knowledge.acf?.knowledge_page_title}
+  description={knowledge.acf?.knowledge_page_des}
+  keywords={knowledge.acf?.knowledge_page_keywords}
+>
+  <KnowledgeDetail lang={lang} knowledge={knowledge} ui={ui} />
+</BaseLayout>

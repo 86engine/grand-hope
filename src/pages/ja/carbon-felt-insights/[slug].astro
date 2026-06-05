@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import UpdatesDetail from "../../../components/UpdatesDetail.astro";
+import { getUpdates } from "../../../data/updates.js";
+import headerI18n from "../../../../public/data/header-i18n.json" with { type: 'json' };
+
+export async function getStaticPaths() {
+  const { posts: updates } = await getUpdates('ja', 1, 9999);
+  return updates.map(u => ({ 
+    params: { slug: u.id }, 
+    props: { update: u } 
+  }));
+}
+
+const lang = 'ja';
+const { update } = Astro.props;
+
+if (!update) return Astro.redirect('/ja/carbon-felt-insights/page/1');
+
+const ui = headerI18n[lang] || headerI18n.en;
+ui.by = { en: 'By', zh: '作者', ja: '著者' }[lang] || 'By';
+ui.recommended = { en: 'Recommended', zh: '推荐阅读', ja: 'おすすめ' }[lang] || 'Recommended';
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId={update.content_id}
+  title={update.pageTitle}
+  description={update.pageDescription}
+  keywords={update.pageKeywords}
+>
+  <UpdatesDetail lang={lang} update={update} ui={ui} />
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AboutPage from "../../components/AboutPage.astro";
+import { getAbout } from "../../data/about.js";
+import headerI18n from "../../../public/data/header-i18n.json" with { type: 'json' };
+
+const lang = 'ja';
+
+const about = await getAbout(lang);
+
+const ui = headerI18n[lang] || headerI18n.en;
+ui.aboutLabel = { en: 'ABOUT GRAND-HOPE', zh: '关于冠合', ja: '会社情報' }[lang] || 'ABOUT GRAND-HOPE';
+ui.aboutTitle = {
+  en: 'Welcome to Grand-Hope, where advanced carbon felt technology meets practical solutions, helping you achieve superior thermal insulation performance.',
+  zh: '欢迎来到冠合，先进的碳毡技术与实用解决方案的结合，助您实现卓越的保温性能。',
+  ja: 'Grand-Hopeへようこそ。先進のカーボンフェルト技術と実用的なソリューションを組み合わせ、優れた断熱性能を実現します。'
+}[lang] || '';
+ui.missionTitle = { en: 'Our Mission', zh: '我们的使命', ja: '私たちの使命' }[lang] || 'Our Mission';
+ui.missionDesc = {
+  en: 'To help our customers achieve superior thermal insulation by delivering high-performance, cost-effective and reliable carbon felt and graphite felt materials.',
+  zh: '通过提供高性能、高性价比、可靠的碳毡和石墨毡材料，帮助客户实现卓越的保温效果。',
+  ja: '高性能でコスト効率の高い信頼性のあるカーボンフェルトとグラファイトフェルト材料を提供し、お客様の優れた断熱性能の実現を支援します。'
+}[lang] || '';
+ui.visionTitle = { en: 'Our Vision', zh: '我们的愿景', ja: '私たちのビジョン' }[lang] || 'Our Vision';
+ui.visionDesc = {
+  en: 'To be the first choice for carbon felt and graphite felt solutions by continuously improving technology, service and customer satisfaction.',
+  zh: '通过持续改进技术、服务和客户满意度，成为碳毡和石墨毡解决方案的首选。',
+  ja: '技術、サービス、顧客満足度を継続的に向上させることで、カーボンフェルトおよびグラファイトフェルトソリューションの第一選択肢となること。'
+}[lang] || '';
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="about"
+  title={about.pageTitle}
+  description={about.pageDescription}
+  keywords={about.pageKeywords}
+>
+  <AboutPage lang={lang} about={about} ui={ui} />
+</BaseLayout>

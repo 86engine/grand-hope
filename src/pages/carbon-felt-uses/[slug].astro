@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ApplicationDetail from "../../components/ApplicationDetail.astro";
+import { getApplications } from "../../data/applications.js";
+import headerI18n from "../../../public/data/header-i18n.json" with { type: 'json' };
+
+export async function getStaticPaths() {
+  const applications = await getApplications('en');
+  return applications.map(a => ({
+    params: { slug: a.id },
+    props: { application: a }
+  }));
+}
+
+const lang = 'en';
+const { application } = Astro.props;
+
+if (!application) return Astro.redirect('/carbon-felt-uses');
+
+const ui = headerI18n[lang] || headerI18n.en;
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId={application.content_id}
+  title={application.pageTitle}
+  description={application.pageDescription}
+  keywords={application.pageKeywords}
+>
+  <ApplicationDetail lang={lang} application={application} ui={ui} />
+</BaseLayout>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactPage from "../components/ContactPage.astro";
+import contactI18n from "../../public/data/contact-i18n.json" with { type: 'json' };
+
+const lang = 'en';
+
+const ui = contactI18n[lang] || contactI18n.en;
+
+const title = `${ui.pageTitle} | Grand-Hope`;
+const description = ui.subheading;
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="contact"
+  title={title}
+  description={description}
+>
+  <ContactPage lang={lang} ui={ui} />
+</BaseLayout>

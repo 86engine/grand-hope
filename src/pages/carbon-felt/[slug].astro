@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProductDetail from "../../components/ProductDetail.astro";
+import { getProducts } from "../../data/products.js";
+import headerI18n from "../../../public/data/header-i18n.json" with { type: 'json' };
+
+export async function getStaticPaths() {
+  const products = await getProducts('en');
+  return products.map(p => ({
+    params: { slug: p.id },
+    props: { product: p }
+  }));
+}
+
+const lang = 'en';
+const { product } = Astro.props;
+
+if (!product) return Astro.redirect('/carbon-felt');
+
+const ui = headerI18n[lang] || headerI18n.en;
+ui.download = { en: 'Download', zh: '下载', ja: 'ダウンロード' }[lang] || 'Download';
+ui.requestQuote = { en: 'Request A Quote', zh: '立即询价', ja: '見積もりを依頼' }[lang] || 'Request A Quote';
+ui.contactUrl = { en: '/contact#get-in-touch', zh: '/zh/contact#get-in-touch', ja: '/ja/contact#get-in-touch' }[lang] || '/contact#get-in-touch';
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId={product.content_id}
+  title={product.pageTitle}
+  description={product.pageDescription}
+  keywords={product.pageKeywords}
+>
+  <ProductDetail lang={lang} product={product} ui={ui} />
+</BaseLayout>

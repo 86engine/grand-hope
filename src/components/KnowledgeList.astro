@@ -1,0 +1,121 @@
+---
+import PageBanner from "./PageBanner.astro";
+import { getPageURL, buildBreadcrumb } from "../data/site.js";
+
+const { lang, knowledgeList, pageData, ui } = Astro.props;
+---
+
+<PageBanner
+  title={pageData.pageH1}
+  breadcrumb={buildBreadcrumb(lang, [
+    { label: ui.knowledge }
+  ])}
+  background={pageData.pageBackground || "https://img.grand-hope.com.cn/system/carbon-felt-banner.webp"}
+/>
+
+{pageData.pageModuleOneTitle && (
+  <section class="rs-feature-area section-space-top rs-feature-two">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-9 col-lg-9 col-md-10">
+          <div class="rs-section-title-wrapper text-center">
+            <h2 class="rs-section-subtitle has-theme-blue">{pageData.pageModuleOneTitle}</h2>
+            <div class="rs-section-title has-theme-blue rs-size rich-text mb-30" set:html={pageData.pageModuleOneDescription} />
+            {pageData.pageModuleTwoTitle && (
+              <h2 class="rs-section-subtitle has-theme-blue">{pageData.pageModuleTwoTitle}</h2>
+            )}
+            {pageData.pageModuleTwoDescription && (
+              <div class="rs-section-title has-theme-blue rs-size rich-text mb-30" set:html={pageData.pageModuleTwoDescription} />
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="rs-portfolio-area rs-portfolio-two pt-40 pb-40 rs-services-six">
+  <div class="container">
+    <div class="row g-5 process-counts">
+      {knowledgeList.map(item => {
+        const detailUrl = getPageURL(item.content_id, lang) || '#';
+        return (
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="rs-services-item">
+              <div class="rs-services-bg-thumb" style="background-image: url('https://img.grand-hope.com.cn/system/service-shape.png');"></div>
+              <h4 class="rs-services-title underline has-theme-blue">
+                <a href={detailUrl}>{item.acf?.knowledge_name}</a>
+              </h4>
+              <p class="descrip">
+                {item.acf?.knowledge_category_overview && item.acf.knowledge_category_overview.length > 100
+                  ? item.acf.knowledge_category_overview.slice(0, 100) + '...'
+                  : item.acf?.knowledge_category_overview}
+              </p>
+              <div class="rs-services-icon">
+                <a href={detailUrl} class="rs-btn has-icon has-transparent-btn">
+                  <span class="icon-box">
+                    <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" width="26" height="12" viewBox="0 0 26 12" fill="none">
+                      <path opacity="0.6" d="M25.5303 6.53033C25.8232 6.23743 25.8232 5.76256 25.5303 5.46967L20.7574 0.696697C20.4645 0.403804 19.9896 0.403804 19.6967 0.696697C19.4038 0.989591 19.4038 1.46446 19.6967 1.75736L23.9393 6L19.6967 10.2426C19.4038 10.5355 19.4038 11.0104 19.6967 11.3033C19.9896 11.5962 20.4645 11.5962 20.7574 11.3033L25.5303 6.53033ZM6.55671e-08 6.75L25 6.75L25 5.25L-6.55671e-08 5.25L6.55671e-08 6.75Z" fill="#616161"/>
+                    </svg>
+                    <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" width="26" height="12" viewBox="0 0 26 12" fill="none">
+                      <path opacity="0.6" d="M25.5303 6.53033C25.8232 6.23743 25.8232 5.76256 25.5303 5.46967L20.7574 0.696697C20.4645 0.403804 19.9896 0.403804 19.6967 0.696697C19.4038 0.989591 19.4038 1.46446 19.6967 1.75736L23.9393 6L19.6967 10.2426C19.4038 10.5355 19.4038 11.0104 19.6967 11.3033C19.9896 11.5962 20.4645 11.5962 20.7574 11.3033L25.5303 6.53033ZM6.55671e-08 6.75L25 6.75L25 5.25L-6.55671e-08 5.25L6.55671e-08 6.75Z" fill="#616161"/>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="rs-services-thumb">
+                <a href={detailUrl}>
+                  <img src={item.acf?.knowledge_category_img} alt={item.acf?.knowledge_name} />
+                </a>
+              </div>
+              <div class="rs-services-number"></div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+{pageData.blocks && pageData.blocks.length > 0 && (
+  <section class="rs-services-area section-space">
+    <div class="container">
+      <div class="rs-services-details-wrapper">
+        {pageData.blocks.map((block, index) => (
+          <>
+            {block.title && (
+              <h2 class="rs-section-subtitle has-theme-blue" style="justify-content:left;margin-bottom:30px">{block.title}</h2>
+            )}
+            {block.description && block.image && (
+              <div class="detail-left__html" style="margin-bottom:30px">
+                <div style="display: flex; gap: 30px; align-items: flex-start; margin-bottom: 25px;">
+                  {index % 2 === 0 ? (
+                    <>
+                      <div style="flex: 1 1 55%; min-width: 280px;" set:html={block.description} />
+                      <div style="flex: 0 0 45%; max-width: 45%;">
+                        <img src={block.image} alt={block.title || ''} style="border-radius: 24px; width: 100%;" />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div style="flex: 0 0 45%; max-width: 45%;">
+                        <img src={block.image} alt={block.title || ''} style="border-radius: 24px; width: 100%;" />
+                      </div>
+                      <div style="flex: 1 1 55%; min-width: 280px;" set:html={block.description} />
+                    </>
+                  )}
+                </div>
+              </div>
+            )}
+            {block.description && !block.image && (
+              <div class="detail-left__html" style="margin-bottom:30px" set:html={block.description} />
+            )}
+            {block.bottomText && (
+              <div class="detail-left__html" style="margin-bottom:30px" set:html={block.bottomText} />
+            )}
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

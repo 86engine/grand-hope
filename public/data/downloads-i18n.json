@@ -1,0 +1,32 @@
+{
+  "en": {
+    "pageTitle": "Downloads",
+    "heading": "Downloads",
+    "subheading": "Here you can find practical materials about carbon felt/graphite felt.",
+    "downloadBtn": "Download PDF",
+    "home": "Home",
+    "cards": [
+      { "title": "Carbon Felt Guide for SiC Crystal Growth", "desc": "Application Guide of Carbon Felt in Silicon Carbide Crystal Growth", "date": "2026-03-08", "url": "https://img.grand-hope.com.cn/system/Application_Guide_Of_Carbon_Felt_In_Silicon_Carbid_EN_V1.0.pdf" }
+    ]
+  },
+  "zh": {
+    "pageTitle": "下载中心",
+    "heading": "下载中心",
+    "subheading": "在这里您可以找到关于碳毡/石墨毡的实用资料。",
+    "downloadBtn": "下载PDF",
+    "home": "首页",
+    "cards": [
+      { "title": "碳毡在SiC晶体生长中的应用指南", "desc": "碳毡在碳化硅晶体生长中的应用指南", "date": "2026-03-08", "url": "https://img.grand-hope.com.cn/system/Application_Guide_Of_Carbon_Felt_In_Silicon_Carbid_EN_V1.0.pdf" }
+    ]
+  },
+  "ja": {
+    "pageTitle": "ダウンロード",
+    "heading": "ダウンロード",
+    "subheading": "カーボンフェルト/グラファイトフェルトに関する実用的な資料をご覧いただけます。",
+    "downloadBtn": "PDFをダウンロード",
+    "home": "ホーム",
+    "cards": [
+      { "title": "SiC結晶成長におけるカーボンフェルトガイド", "desc": "炭化ケイ素結晶成長におけるカーボンフェルトの応用ガイド", "date": "2026-03-08", "url": "https://img.grand-hope.com.cn/system/Application_Guide_Of_Carbon_Felt_In_Silicon_Carbid_EN_V1.0.pdf" }
+    ]
+  }
+}

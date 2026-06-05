@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import UpdatesList from "../../../../components/UpdatesList.astro";
+import { getUpdates } from "../../../../data/updates.js";
+import wpData from "../../../../data/wp-data.json" with { type: 'json' };
+import headerI18n from "../../../../../public/data/header-i18n.json" with { type: 'json' };
+
+export async function getStaticPaths() {
+  const { totalPages } = await getUpdates('ja', 1, 10);
+  
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: String(i + 1) }
+  }));
+}
+
+const lang = 'ja';
+const { page } = Astro.params;
+const currentPage = parseInt(page);
+const perPage = 10;
+
+const { posts: allUpdates, totalPages } = await getUpdates(lang, currentPage, perPage);
+
+const ui = headerI18n[lang] || headerI18n.en;
+ui.by = { en: 'By', zh: '作者', ja: '著者' }[lang] || 'By';
+ui.continueReading = { en: 'Continue Reading', zh: '继续阅读', ja: '続きを読む' }[lang] || 'Continue Reading';
+ui.search = { en: 'Search...', zh: '搜索...', ja: '検索...' }[lang] || 'Search...';
+ui.categories = { en: 'Categories', zh: '分类', ja: 'カテゴリー' }[lang] || 'Categories';
+ui.latestPosts = { en: 'Latest Posts', zh: '最新文章', ja: '最新記事' }[lang] || 'Latest Posts';
+ui.all = { en: 'All', zh: '全部', ja: '全て' }[lang] || 'All';
+ui.prev = { en: 'Previous', zh: '上一页', ja: '前へ' }[lang] || 'Previous';
+ui.next = { en: 'Next', zh: '下一页', ja: '次へ' }[lang] || 'Next';
+
+const newsListMeta = wpData.newsList || {};
+const pageTitle = currentPage > 1 
+  ? `${newsListMeta.newslist_page_title || 'ニュース'} - ${currentPage}ページ | Grand-Hope`
+  : `${newsListMeta.newslist_page_title || 'ニュース'} | Grand-Hope`;
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="newsList"
+  title={pageTitle}
+  description={newsListMeta.newslist_page_des || 'Grand-Hope の最新ニュース'}
+  keywords={newsListMeta.newslist_page_keywords || ''}
+>
+  <UpdatesList 
+    lang={lang} 
+    updates={allUpdates} 
+    ui={ui} 
+    currentPage={currentPage} 
+    totalPages={totalPages} 
+  />
+</BaseLayout>

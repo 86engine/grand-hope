@@ -1,0 +1,32 @@
+---
+const { title, breadcrumb, background } = Astro.props;
+---
+<section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">
+  <div class="rs-breadcrumb-bg" style={`background-image: url(${background});`}></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xxl-6 col-xl-8 col-lg-8">
+        <div class="rs-breadcrumb-content-wrapper">
+          <div class="rs-breadcrumb-title-wrapper">
+            <h1 class="rs-breadcrumb-title">{title}</h1>
+          </div>
+          <div class="rs-breadcrumb-menu">
+            <nav>
+              <ul>
+                {breadcrumb.map((item, i) => (
+                  <li><span>
+                    {i < breadcrumb.length - 1 ? (
+                      <a href={item.href}>{item.label}</a>
+                    ) : (
+                      item.label
+                    )}
+                  </span></li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

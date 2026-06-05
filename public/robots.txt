@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /privacy-policy
+Disallow: /zh/privacy-policy
+Disallow: /ja/privacy-policy
+Allow: /
+
+Sitemap: https://grand-hope.com.cn/sitemap.xml

@@ -1,0 +1,121 @@
+---
+import { STATIC_PAGES } from "../config/site";
+import { getPageURL } from "../data/site.js";
+import footerI18n from "../../public/data/footer-i18n.json" with { type: 'json' };
+
+const { lang } = Astro.props;
+
+const ui = footerI18n[lang] || footerI18n.en;
+
+const links = [
+  { key: 'products', path: getPageURL('productList', lang) },
+  { key: 'solutions', path: getPageURL('applicationList', lang) },
+  { key: 'about', path: getPageURL('about', lang) },
+  { key: 'updates', path: getPageURL('newsList', lang) },
+  { key: 'downloads', path: STATIC_PAGES.downloads[lang] },
+  { key: 'knowledge', path: getPageURL('knowledgeList', lang) },
+];
+
+const privacyPath = STATIC_PAGES['privacy-policy'][lang];
+const contactPath = STATIC_PAGES.contact[lang];
+---
+
+<div class="rs-footer-bg-thumb-wrapper">
+  <div class="rs-footer-bg-thumb" style="background-image: url('https://img.grand-hope.com.cn/system/grand-hope-footer-pattern.webp');"></div>
+
+  <div class="rs-subscribe-area rs-subscribe-one">
+    <div class="container">
+      <div class="rs-subscribe-wrapper">
+        <div class="row g-5 align-items-center">
+          <div class="col-xl-3 col-lg-3">
+            <div class="rs-subscribe-logo">
+              <img src="https://img.grand-hope.com.cn/system/grandhope-new-materials-logo.png" alt={ui.logoAlt}>
+            </div>
+          </div>
+          <div class="col-xl-9 col-lg-9">
+            <div class="rs-subscribe-content" style="display: flex; align-items: center; justify-content: space-between;">
+              <div class="rs-subscribe-text"><p>{ui.subscribeText}</p></div>
+              <a href={`${contactPath}#get-in-touch`} class="rs-btn blue-bg" style="flex-shrink: 0; width: auto; padding: 10px 50px;">
+                {ui.contactUs}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="rs-footer-area rs-footer-two has-theme-blue">
+      <div class="container">
+        <div class="rs-footer-top">
+          <div class="row g-5">
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+              <div class="rs-footer-widget footer-2-col-1">
+                <h5 class="rs-footer-widget-title">{ui.aboutTitle}</h5>
+                <div class="rs-footer-widget-content">
+                  <p class="rs-footer-widget-description">{ui.aboutDesc}</p>
+                  <div class="rs-footer-widget-stroke-text">
+                    <h3 class="rs-footer-stroke-text has-theme-blue">Since 2021</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+              <div class="rs-footer-widget footer-2-col-2">
+                <h5 class="rs-footer-widget-title">{ui.usefulLinks}</h5>
+                <div class="rs-footer-widget-content">
+                  <div class="rs-footer-widget-links has-theme-blue">
+                    <ul>
+                      {links.map(link => <li><a href={link.path}>{ui[link.key]}</a></li>)}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+              <div class="rs-footer-widget footer-2-col-3">
+                <h5 class="rs-footer-widget-title">{ui.officeAddress}</h5>
+                <div class="rs-footer-widget-content">
+                  <div class="rs-footer-widget-meta">
+                    <div class="rs-footer-widget-address">
+                      <a target="_blank" href="https://www.google.com/maps">No. 4885, Gucheng Road, Kunshan City, Jiangsu Province</a>
+                    </div>
+                    <h5 class="rs-footer-widget-title">{ui.emailAddress}</h5>
+                    <div class="rs-footer-widget-email" style="white-space: pre-line;">
+                      <a href={`mailto:${ui.email1}`}>{ui.emailName1}</br>{ui.email1}</a>
+                    </div>
+                    <div class="rs-footer-widget-email" style="white-space: pre-line;">
+                      <a href={`mailto:${ui.email2}`}>{ui.emailName2}</br>{ui.email2}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+              <div class="rs-footer-widget footer-2-col-4">
+                <h5 class="rs-footer-widget-title">{ui.phoneNumber}</h5>
+                <div class="rs-footer-widget-content">
+                  <div class="rs-footer-widget-contact-info">
+                    <div class="rs-footer-widget-number"><span><a href={`tel:${ui.phone.replace(/\s/g, '')}`}>{ui.phone}</a></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rs-footer-copyright-area rs-copyright-one">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-12">
+              <div class="rs-footer-copyright has-theme-blue text-center">
+                <p class="underline">{ui.copyright} <span><a href={privacyPath}>{ui.cookiePolicy}</a></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

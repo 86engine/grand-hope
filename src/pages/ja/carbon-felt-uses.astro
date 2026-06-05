@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ApplicationList from "../../components/ApplicationList.astro";
+import { getApplications } from "../../data/applications.js";
+import { getApplicationCategories } from "../../data/applicationCategories.js";
+import headerI18n from "../../../public/data/header-i18n.json" with { type: 'json' };
+
+const lang = 'ja';
+
+const [applications, applicationCategories] = await Promise.all([
+  getApplications(lang),
+  getApplicationCategories(lang),
+]);
+
+const ui = headerI18n[lang] || headerI18n.en;
+ui.viewDetail = { en: 'View Details', zh: '查看详情', ja: '詳細を見る' }[lang] || 'View Details';
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="applicationList"
+  title={applicationCategories.pageTitle}
+  description={applicationCategories.pageDescription}
+  keywords={applicationCategories.pageKeywords}
+>
+  <ApplicationList lang={lang} applications={applications} applicationCategories={applicationCategories} ui={ui} />
+</BaseLayout>

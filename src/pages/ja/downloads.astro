@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DownloadsPage from "../../components/DownloadsPage.astro";
+import downloadsI18n from "../../../public/data/downloads-i18n.json" with { type: 'json' };
+
+const lang = 'ja';
+
+const ui = downloadsI18n[lang] || downloadsI18n.en;
+
+const title = `${ui.pageTitle} | Grand-Hope`;
+const description = ui.subheading;
+---
+
+<BaseLayout
+  lang={lang}
+  currentContentId="downloads"
+  title={title}
+  description={description}
+>
+  <DownloadsPage lang={lang} ui={ui} />
+</BaseLayout>
