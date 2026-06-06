@@ -3,3 +3,8 @@ compatibility_date = "2026-06-03"
 
 # 关键：显式声明空的 KV 绑定，直接覆盖并拒绝 Wrangler 的默认行为
 kv_namespaces = []
+
+# ─── 新增以下配置 ───
+# 告诉 Wrangler 去哪里找 Astro 打包出来的静态文件
+[assets]
+directory = "./dist"
