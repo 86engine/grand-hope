@@ -125,7 +125,7 @@
     },
     {
       "id": 3294,
-      "modified": "2026-06-02T17:55:23",
+      "modified": "2026-06-05T13:03:36",
       "slug": "gh-cf17",
       "type": "carbon-felt",
       "link": "https://wp.grand-hope.com.cn/ja/carbon-felt/gh-cf17/",
@@ -153,7 +153,7 @@
         "product_one_title": "材料構造",
         "product_one_des_top": "<p style=\"font-size:20px;margin-top:-20px\">使用シーンにより、カーボンフェルトの製品成形性は以下の4種類に分類されます：</p>\r\n<p style=\"font-size:20px;margin-top:-20px\">\r\n1.未処理カーボンフェルト – 中・低グレードの高温熱場に適用され、同等製品を大幅に上回る性能を発揮します。\r\n2.純化のみのカーボンフェルト – 中・高グレードの高温熱場に使用され、コストが比較的低く抑えられながら国際的な先進水準に近い性能を実現します。\r\n3.純化＋コーティングカーボンフェルト – 高グレード高温熱場向けに設計され、高い表面保護性、長寿命、耐腐食性を備えています。\r\n4.純化＋黒鉛化カーボンフェルト – トップクラスの高温熱場環境向けであり、高い表面保護性、長寿命、耐腐食性に加え、優れた熱放射特性を有します。\r\n</p>\r\n<img src=\"https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-cf17-structure-jp.webp\" alt=\"カーボンフェルトCf17材料構造\" />",
         "product_two_title": "カーボンフェルトの主な用途",
-        "product_two_des_middle": "<p style=\"font-size:20px;margin-top:-20px\">カーボンフェルト断熱材は、以下の分野で広く使用されています：</p>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/silicon-carbide-growth\">炭化シリコン結晶成長</a>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/fiber-optic-manufacturing\">光ファイバー分野</a>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/carbon-felt-furnaces\">高温工業炉</a>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/sic-wafer-manufacturing-process\">半導体シリコンウェーハ</a>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/sapphire-crystal-growth\">サファイア成長</a>",
+        "product_two_des_middle": "<p style=\"font-size:20px;margin-top:-20px\">カーボンフェルト断熱材は、以下の分野で広く使用されています：</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/silicon-carbide-growth\">炭化シリコン結晶成長</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/fiber-optic-manufacturing\">光ファイバー分野</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/carbon-felt-furnaces\">高温工業炉</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/sic-wafer-manufacturing-process\">半導体シリコンウェーハ</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-applications/sapphire-crystal-growth\">サファイア成長</a>\r\n</p>",
         "product_two_img": "https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-detail-02.webp",
         "product_three_title": "技術仕様",
         "product_three_des_top": "<p style=\"font-size:20px;margin-top:-20px\">GH-CF17 カーボンフェルト断熱材は、厳しい産業用途に適した安定した物理特性および熱特性を備えています。</p>\r\n<img src=\"https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-cf17-technical-specifications-zh.webp\" alt=\"carbon felt CF17 技術仕様\" />\r\n",
@@ -248,7 +248,7 @@
     },
     {
       "id": 1971,
-      "modified": "2026-06-02T17:57:09",
+      "modified": "2026-06-05T13:01:28",
       "slug": "gh-cf17",
       "type": "carbon-felt",
       "link": "https://wp.grand-hope.com.cn/zh/carbon-felt/gh-cf17/",
@@ -276,7 +276,7 @@
         "product_one_title": "材料结构",
         "product_one_des_top": "<p style=\"font-size:20px;margin-top:-20px\">根据使用场景不同，碳毡的产品延展性分为四种：</p>\r\n<p style=\"font-size:20px;margin-top:-20px\">\r\n1、不进行任何处理的碳毡，适用中低端高温热场，其产品性能远远高于其他同类产品；\r\n2、仅纯化的碳毡，适用于中高端高温热场领域，相对成本较低，接近国际领先水准；\r\n3、纯化+涂层，此类适用于高端高温热场领域。这类产品表面防护性能高，寿命长，耐腐蚀；\r\n4、纯化+石墨化，此类适用于顶级高温热场领域。其表面防护性能高，寿命长，耐腐蚀，发射热量。\r\n</p>\r\n<img src=\"https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-cf17-structure-zh.webp\" alt=\"cf17碳毡材料结构\" />",
         "product_two_title": "碳毡典型应用",
-        "product_two_des_middle": "<p style=\"font-size:20px;margin-top:-20px\">碳毡隔热材料广泛应用于以下领域：</p>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/silicon-carbide-growth\">碳化硅晶体生长</a>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/fiber-optic-manufacturing\">光纤领域</a>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/carbon-felt-furnaces\">高温工业炉</a>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/sic-wafer-manufacturing-process\">半导体硅晶圆</a>\r\n<a style=\"font-size:20px\" href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/sapphire-crystal-growth\">蓝宝石生长</a>",
+        "product_two_des_middle": "<p style=\"font-size:20px;margin-top:-20px\">碳毡隔热材料广泛应用于以下领域：</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/silicon-carbide-growth\">碳化硅晶体生长</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/fiber-optic-manufacturing\">光纤领域</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/carbon-felt-furnaces\">高温工业炉</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/sic-wafer-manufacturing-process\">半导体硅晶圆</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-applications/sapphire-crystal-growth\">蓝宝石生长</a>\r\n</p>",
         "product_two_img": "https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-detail-02.webp",
         "product_three_title": "技术规格",
         "product_three_des_top": "<p style=\"font-size:20px;margin-top:-20px\">GH-CF17 碳毡隔热材料具备稳定的物理与热学性能，适用于严苛的工业应用环境。</p>\r\n<img src=\"https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-cf17-technical-specifications-zh.webp\" alt=\"碳毡cf17技术规格\" />",
@@ -10864,7 +10864,7 @@
     },
     "ja": {
       "id": 3197,
-      "modified": "2026-05-26T09:38:40",
+      "modified": "2026-06-05T13:10:34",
       "slug": "carbon-felt",
       "type": "page",
       "link": "https://wp.grand-hope.com.cn/ja/carbon-felt/",
@@ -10899,7 +10899,7 @@
         "product_category_four_des_bottom": "<p style=\"font-size:20px;\">コスト面では、グラファイトフェルトは一般的にカーボンフェルトより高価です。これは、カーボンフェルトに高温での黒鉛化処理を施す必要があり、工程が複雑でエネルギーを多く消費するためです。一方、カーボンフェルトは炭化処理のみで済み、製造プロセスが比較的シンプルです。</p>",
         "product_category_four_img": "https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-disc-01.webp",
         "product_category_five_title": "カーボンフェルトの主な用途",
-        "product_category_five_des": "<p style=\"font-size:20px;\">カーボンフェルト断熱材は、以下の分野で広く使用されています：</p>\r\n<p style=\"font-size:20px;\"><a href=\"\">炭化シリコン結晶成長</a></p>\r\n<p style=\"font-size:20px;\"><a href=\"\">光ファイバー分野</a></p>\r\n<p style=\"font-size:20px;\"><a href=\"\">高温工業炉</a></p>\r\n<p style=\"font-size:20px;\"><a href=\"\">半導体シリコンウェーハ</a></p>\r\n<p style=\"font-size:20px;\"><a href=\"\">サファイア成長</a></p>\r\n<p style=\"font-size:20px;\">カーボンフェルトとグラファイトフェルトの選択は、使用温度、雰囲気環境、および長期性能要件によって決定されます。</p>",
+        "product_category_five_des": "<p style=\"font-size:20px;\">カーボンフェルト断熱材は、以下の分野で広く使用されています：</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-uses/silicon-carbide-growth\">炭化シリコン結晶成長</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-uses/fiber-optic-manufacturing\">光ファイバー分野</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-uses/carbon-felt-furnaces\">高温工業炉</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-uses/sic-wafer-manufacturing-process\">半導体シリコンウェーハ</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/ja/carbon-felt-uses/sapphire-crystal-growth\">サファイア成長</a>\r\n</p>\r\n<p style=\"font-size:20px;\">カーボンフェルトとグラファイトフェルトの選択は、使用温度、雰囲気環境、および長期性能要件によって決定されます。</p>",
         "product_category_five_img": "https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-edge-detail.webp"
       },
       "lang": "ja",
@@ -10954,14 +10954,14 @@
         ],
         "version-history": [
           {
-            "count": 3,
+            "count": 4,
             "href": "https://wp.grand-hope.com.cn/wp-json/wp/v2/pages/3197/revisions"
           }
         ],
         "predecessor-version": [
           {
-            "id": 3243,
-            "href": "https://wp.grand-hope.com.cn/wp-json/wp/v2/pages/3197/revisions/3243"
+            "id": 3750,
+            "href": "https://wp.grand-hope.com.cn/wp-json/wp/v2/pages/3197/revisions/3750"
           }
         ],
         "wp:attachment": [
@@ -10980,7 +10980,7 @@
     },
     "zh": {
       "id": 1883,
-      "modified": "2026-05-27T10:55:22",
+      "modified": "2026-06-05T13:14:36",
       "slug": "carbon-felt",
       "type": "page",
       "link": "https://wp.grand-hope.com.cn/zh/carbon-felt/",
@@ -11015,7 +11015,7 @@
         "product_category_four_des_bottom": "<p style=\"font-size:20px;\">经济成本：石墨毡成本通常高于碳毡，石墨毡需在高温下对碳毡进行石墨化处理，工艺复杂且能耗高；而碳毡仅需碳化处理，生产流程相对简单。</p>",
         "product_category_four_img": "https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-disc-01.webp",
         "product_category_five_title": "碳毡典型应用",
-        "product_category_five_des": "<p style=\"font-size:20px;\">碳毡隔热材料广泛应用于以下领域：</p>\r\n<p style=\"font-size:20px;\"><a href=\"\">碳化硅晶体生长</a></p>\r\n<p style=\"font-size:20px;\"><a href=\"\">光纤领域</a></p>\r\n<p style=\"font-size:20px;\"><a href=\"\">高温工业炉</a></p>\r\n<p style=\"font-size:20px;\"><a href=\"\">半导体硅晶圆</a></p>\r\n<p style=\"font-size:20px;\"><a href=\"\">蓝宝石生长</a></p>\r\n<p style=\"font-size:20px;\">碳毡与石墨毡的选择取决于工作温度、气氛环境及长期性能要求。</p>",
+        "product_category_five_des": "<p style=\"font-size:20px;\">碳毡隔热材料广泛应用于以下领域：</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-uses/silicon-carbide-growth\">碳化硅晶体生长</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-uses/fiber-optic-manufacturing\">光纤领域</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-uses/carbon-felt-furnaces\">高温工业炉</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-uses/sic-wafer-manufacturing-process\">半导体硅晶圆</a>\r\n</p>\r\n<p style=\"font-size:20px; color:#005EB8;\" onmouseover=\"this.style.color='var(--rs-theme-deep-blue)'\" onmouseout=\"this.style.color='#005EB8'\">\r\n<a href=\"https://grand-hope.com.cn/zh/carbon-felt-uses/sapphire-crystal-growth\">蓝宝石生长</a>\r\n</p>\r\n<p style=\"font-size:20px;\">碳毡与石墨毡的选择取决于工作温度、气氛环境及长期性能要求。</p>",
         "product_category_five_img": "https://img.grand-hope.com.cn/wp-content/uploads/2026/05/carbon-felt-edge-detail.webp"
       },
       "lang": "zh",
@@ -11070,14 +11070,14 @@
         ],
         "version-history": [
           {
-            "count": 6,
+            "count": 7,
             "href": "https://wp.grand-hope.com.cn/wp-json/wp/v2/pages/1883/revisions"
           }
         ],
         "predecessor-version": [
           {
-            "id": 3244,
-            "href": "https://wp.grand-hope.com.cn/wp-json/wp/v2/pages/1883/revisions/3244"
+            "id": 3752,
+            "href": "https://wp.grand-hope.com.cn/wp-json/wp/v2/pages/1883/revisions/3752"
           }
         ],
         "wp:attachment": [

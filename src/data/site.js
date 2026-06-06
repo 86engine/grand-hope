@@ -132,7 +132,12 @@ export function getPageURL(contentId, lang) {
 
   const translations = getTranslationsByContentId(contentId);
   if (translations?.[lang]?.link) {
-    return translations[lang].link;
+    const localizedLink = translations[lang].link;
+    // Updates 列表首页实际承载在 /page/1，避免静态站点展示中转重定向页。
+    if (contentId === 'newsList') {
+      return localizedLink.replace(/\/?$/, '/page/1');
+    }
+    return localizedLink;
   }
 
   console.error(`❌ getPageURL: 翻译索引中未找到 content_id="${contentId}"`);
