@@ -60,15 +60,11 @@ const canonical = alternates[lang] || `${siteUrl}/`;
     ))}
 
     <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/vendor/animate.min.css">
     <link rel="stylesheet" href="/css/plugins/swiper.min.css">
     <link rel="stylesheet" href="/css/plugins/nice-select.css">
-    <link rel="stylesheet" href="/css/plugins/nouislider.min.css">
     <link rel="stylesheet" href="/css/vendor/magnific-popup.css">
-    <link rel="stylesheet" href="/css/vendor/odometer.min.css">
     <link rel="stylesheet" href="/css/vendor/fontawesome-pro.css">
     <link rel="stylesheet" href="/css/vendor/spacing.css">
-    <link rel="stylesheet" href="/css/vendor/remixicon.css">
   </head>
   
   <body>
@@ -76,32 +72,14 @@ const canonical = alternates[lang] || `${siteUrl}/`;
     <main><slot /></main>
     <Footer lang={lang} />
     <script is:inline defer src="/js/vendor/jquery-3.7.1.min.js"></script>
-    <script is:inline defer src="/js/plugins/waypoints.min.js"></script>
-    <script is:inline defer src="/js/vendor/bootstrap.bundle.min.js"></script>
+    <script is:inline defer src="/js/accordion.js"></script>
     <script is:inline defer src="/js/plugins/meanmenu.min.js"></script>
     <script is:inline defer src="/js/plugins/swiper.min.js"></script>
-    <script is:inline defer src="/js/plugins/wow.min.js"></script>
     <script is:inline defer src="/js/vendor/magnific-popup.min.js"></script>
-    <script is:inline defer src="/js/vendor/isotope.pkgd.min.js"></script>
-    <script is:inline defer src="/js/vendor/imagesloaded.pkgd.min.js"></script>
     <script is:inline defer src="/js/plugins/nice-select.min.js"></script>
     <script is:inline defer src="/js/plugins/jarallax.min.js"></script>
     <script is:inline defer src="/js/vendor/ajax-form.js"></script>
-    <script is:inline defer src="/js/plugins/easypie.js"></script>
-    <script is:inline defer src="/js/plugins/headding-title.js"></script>
-    <script is:inline defer src="/js/plugins/lenis.min.js"></script>
-    <script is:inline defer src="/js/plugins/gsap.min.js"></script>
-    <script is:inline defer src="/js/plugins/rs-anim-int.js"></script>
-    <script is:inline defer src="/js/plugins/rs-scroll-trigger.min.js"></script>
-    <script is:inline defer src="/js/plugins/rs-splitText.min.js"></script>
-    <script is:inline defer src="/js/plugins/jquery.lettering.js"></script>
     <script is:inline defer src="/js/plugins/parallax-effect.min.js"></script>
-    <script is:inline defer src="/js/plugins/jquery.appear.min.js"></script>
-    <script is:inline defer src="/js/plugins/marquee.min.js"></script>
-    <script is:inline defer src="/js/plugins/chart.umd.min.js"></script>
-    <script is:inline defer src="/js/plugins/nouislider.min.js"></script>
-    <script is:inline defer src="/js/vendor/purecounter.js"></script>
-    <script is:inline defer src="/js/vendor/odometer.min.js"></script>
     <script is:inline defer src="/js/main.js"></script>
     <script is:inline define:vars={{ alternates, lang }}>
       (() => {

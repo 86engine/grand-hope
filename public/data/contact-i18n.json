@@ -1,5 +1,6 @@
 {
   "en": {
+    "home": "Home",
     "pageTitle": "Contact Us",
     "globalBranch": "Contact Us",
     "heading": "Get in touch with our team",
@@ -26,6 +27,7 @@
     "submitError": "Submission failed. Please try again later."
   },
   "zh": {
+    "home": "首页",
     "pageTitle": "联系我们",
     "globalBranch": "联系我们",
     "heading": "与我们的团队取得联系",
@@ -52,6 +54,7 @@
     "submitError": "提交失败，请稍后重试。"
   },
   "ja": {
+    "home": "ホーム",
     "pageTitle": "お問い合わせ",
     "globalBranch": "お問い合わせ",
     "heading": "私たちのチームにご連絡ください",

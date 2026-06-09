@@ -4,7 +4,7 @@
 
     /* Windows Load */
     $(window).on('load', function () {
-        wowAnimation();
+        //wowAnimation();
     });
 
 
@@ -47,12 +47,12 @@
     }
 
     /* Append settings HTML  */
-    rs_settings_append(true); /* if you want to enable dark mode, send "true" */
+    //rs_settings_append(true); /* if you want to enable dark mode, send "true" */
 
     /* Event listeners  */
-    $(".rs-theme-settings-open-btn").on("click", function () {
-        $(".rs-theme-settings-area").toggleClass("settings-opened");
-    });
+    //$(".rs-theme-settings-open-btn").on("click", function () {
+        //$(".rs-theme-settings-area").toggleClass("settings-opened");
+    //});
 
     /* Initialize RTL settings if the element is present  */
     if ($("#rs-dir-toggler").length > 0) {
@@ -63,41 +63,9 @@
     let rtl_setting = rs_rtl === 'rtl' ? true : false;
 
     /* settings append in body Js */
-    function rs_settings_append($x) {
-        var settings = $('body');
-        /* no need switcher then add 'd-none' */
-        var settings_html = `<div class="rs-theme-settings-area">
-        <div class="rs-theme-wrapper">
-        <div class="rs-theme-header text-center">
-           <h4 class="rs-theme-header-title">Template Settings</h4>
-        </div>
-        <!--  RTL SETTINGS  mb-20 -->
-        <div class="rs-theme-dir">
-           <label class="rs-theme-dir-main" for="rs-dir-toggler" dir="rtl">
-              <span class="rs-theme-dir-rtl"> RTL</span>
-                 <input type="checkbox" id="rs-dir-toggler">
-                 <i class="rs-theme-dir-slide"></i>
-              <span class="rs-theme-dir-ltr"> LTR</span>
-           </label>
-        </div>
-
-        <div class="rs-theme-settings">
-           <div class="rs-theme-settings-wrapper">
-              <div class="rs-theme-settings-open">
-                 <button class="rs-theme-settings-open-btn">
-                    <span class="rs-theme-settings-gear">
-                       <i class="fa-light fa-gear"></i>
-                    </span>
-                    <span class="rs-theme-settings-close">
-                       <i class="fa-regular fa-xmark"></i>
-                    </span>
-                 </button>
-              </div>
-           </div>
-        </div>
-     </div>
-         </div>`;
-        settings.append(settings_html);
+        function rs_settings_append($x) {
+        // 已禁用 - 主题设置面板
+        return;
     }
     // rtl setting end
 
@@ -114,16 +82,16 @@
     /* footer year */
 
     /* Wow Active */
-    function wowAnimation() {
-        var wow = new WOW({
-            boxClass: 'wow',
-            animateClass: 'animated',
-            offset: 0,
-            mobile: false,
-            live: true
-        });
-        wow.init();
-    }
+    //function wowAnimation() {
+    //    var wow = new WOW({
+    //        boxClass: 'wow',
+    //        animateClass: 'animated',
+    //        offset: 0,
+    //        mobile: false,
+    //        live: true
+    //    });
+    //    wow.init();
+    //}
 
     /*======================================
 Sidebar Toggle
@@ -181,12 +149,12 @@ Sidebar Toggle
     $("select").niceSelect();
 
     /* PureCounter Js */
-    new PureCounter();
-    new PureCounter({
-        filesizing: true,
-        selector: ".filesizecount",
-        pulse: 2,
-    });
+    //new PureCounter();
+    //new PureCounter({
+    //    filesizing: true,
+    //    selector: ".filesizecount",
+    //    pulse: 2,
+    //});
 
     /* pricing */
     var mainPlan = $('.rs-pricing-area');
@@ -214,13 +182,13 @@ Sidebar Toggle
     });
 
     //===== Odometer js
-    $('.odometer').appear(function (e) {
-        var odo = $(".odometer");
-        odo.each(function () {
-            var countNumber = $(this).attr("data-count");
-            $(this).html(countNumber);
-        });
-    });
+    //$('.odometer').appear(function (e) {
+    //    var odo = $(".odometer");
+    //    odo.each(function () {
+    //        var countNumber = $(this).attr("data-count");
+    //        $(this).html(countNumber);
+    //    });
+    //});
 
     //search
     $('.rs-header-search-icon').on('click', function (event) {
@@ -445,21 +413,21 @@ Sidebar Toggle
            
 
         /* Button scroll up js */
-        var progressPath = document.querySelector(".backtotop-wrap path");
-        var pathLength = progressPath.getTotalLength();
-        progressPath.style.transition = progressPath.style.WebkitTransition = "none";
-        progressPath.style.strokeDasharray = pathLength + " " + pathLength;
-        progressPath.style.strokeDashoffset = pathLength;
-        progressPath.getBoundingClientRect();
-        progressPath.style.transition = progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
-        var updateProgress = function () {
-            var scroll = $(window).scrollTop();
-            var height = $(document).height() - $(window).height();
-            var progress = pathLength - (scroll * pathLength) / height;
-            progressPath.style.strokeDashoffset = progress;
-        };
-        updateProgress();
-        $(window).scroll(updateProgress);
+        //var progressPath = document.querySelector(".backtotop-wrap path");
+        //var pathLength = progressPath.getTotalLength();
+        //progressPath.style.transition = progressPath.style.WebkitTransition = "none";
+        //progressPath.style.strokeDasharray = pathLength + " " + pathLength;
+        //progressPath.style.strokeDashoffset = pathLength;
+        //progressPath.getBoundingClientRect();
+        //progressPath.style.transition = progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
+        //var updateProgress = function () {
+            //var scroll = $(window).scrollTop();
+            //var height = $(document).height() - $(window).height();
+            //var progress = pathLength - (scroll * pathLength) / height;
+            //progressPath.style.strokeDashoffset = progress;
+        //};
+        //updateProgress();
+        //$(window).scroll(updateProgress);
         var offset = 150;
         var duration = 550;
         $(window).on("scroll", function () {
@@ -762,33 +730,33 @@ Sidebar Toggle
             });
 
         });
-    } else {
-        $('.grid').imagesLoaded(function () {
+    //} else {
+        //$('.grid').imagesLoaded(function () {
             // init Isotope
-            var $grid = $('.grid').isotope({
-                itemSelector: '.grid-item',
-                percentPosition: true,
-                masonry: {
+        //    var $grid = $('.grid').isotope({
+        //        itemSelector: '.grid-item',
+        //        percentPosition: true,
+        //        masonry: {
                     // use outer width of grid-sizer for columnWidth
-                    columnWidth: '.grid-item',
-                }
-            });
+        //            columnWidth: '.grid-item',
+        //        }
+        //    });
 
 
             // filter items on button click
-            $('.featured-menu').on('click', 'button', function () {
-                var filterValue = $(this).attr('data-filter');
-                $grid.isotope({ filter: filterValue });
-            });
+        //    $('.featured-menu').on('click', 'button', function () {
+        //        var filterValue = $(this).attr('data-filter');
+        //        $grid.isotope({ filter: filterValue });
+        //    });
 
             //for menu active class
-            $('.featured-menu button').on('click', function (event) {
-                $(this).siblings('.active').removeClass('active');
-                $(this).addClass('active');
-                event.preventDefault();
-            });
+        //    $('.featured-menu button').on('click', function (event) {
+        //        $(this).siblings('.active').removeClass('active');
+        //        $(this).addClass('active');
+        //        event.preventDefault();
+        //    });
 
-        });
+        //});
 
         var show_item_2 = $('.featured-load-item-count').attr('data-show');
         $(".featured-load-item").hide();

@@ -122,7 +122,7 @@ function formatDate(dateStr) {
                 <ul>
                   {[...new Set(updates.map(u => u.category).filter(Boolean))].map(cat => (
                     <li>
-                      <a href={`?category=${cat}`}>{cat} <i class="ri-arrow-right-line"></i></a>
+                      <a href={`?category=${cat}`}>{cat} <i class="fa-solid fa-arrow-right"></i></a>
                     </li>
                   ))}
                 </ul>
@@ -148,7 +148,7 @@ function formatDate(dateStr) {
                           <a href={detailUrl}>{update.title}</a>
                         </h6>
                         <div class="sidebar-blog-meta">
-                          <i class="ri-calendar-line"></i>
+                          <i class="fa-solid fa-calendar-days"></i>
                           <span>{formatDate(update.date)}</span>
                         </div>
                       </div>
