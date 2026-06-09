@@ -75,7 +75,7 @@ const title = 'Cookie Policy | Grand-Hope';
     <h2 id="cookieTitle"></h2>
     <p id="cookieDesc"></p>
     <div class="cookie-top-row">
-      <a href={STATIC_PAGES['privacy-policy'][lang]} id="cookiePrivacyLink"></a>
+      <a href={STATIC_PAGES['privacy-policy'][lang]} id="cookiePrivacyLink">Privacy Policy</a>
       <select id="cookieLang" onchange="window._cookieSetLang(this.value)">
         <option value="en">English</option>
         <option value="ja">日本語</option>
@@ -89,9 +89,9 @@ const title = 'Cookie Policy | Grand-Hope';
       <label class="cookie-option"><div><strong id="cookieMarketingTitle"></strong><small id="cookieMarketingDesc"></small></div><span class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></span></label>
     </div>
     <div class="cookie-actions">
-      <button class="cookie-btn primary" id="btnAcceptAll"></button>
-      <button class="cookie-btn outline" id="btnStrictlyNecessary"></button>
-      <button class="cookie-btn outline" id="btnSaveSettings"></button>
+      <button class="cookie-btn primary" id="btnAcceptAll">Accept all</button>
+      <button class="cookie-btn outline" id="btnStrictlyNecessary">Strictly necessary</button>
+      <button class="cookie-btn outline" id="btnSaveSettings">Save settings</button>
     </div>
   </div>
 </div>
@@ -162,7 +162,7 @@ const title = 'Cookie Policy | Grand-Hope';
       btn.addEventListener('click', () => {
         document.getElementById('cookieModal').style.display = 'none';
         const newLang = document.getElementById('cookieLang').value;
-        const path = window.location.pathname;
+        const path = window.location.pathname.replace(/\/$/, '') || '/';
         const pageMap = {
           '/privacy-policy': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },
           '/zh/privacy-policy': { en: '/privacy-policy', zh: '/zh/privacy-policy', ja: '/ja/privacy-policy' },

@@ -9,7 +9,9 @@ const { lang } = Astro.props;
     <h2 id="cookieConsentTitle"></h2>
     <p id="cookieConsentDesc"></p>
     <div class="cookie-top-row">
-      <a href={STATIC_PAGES['privacy-policy'][lang]} id="cookieConsentPrivacyLink"></a>
+      <a href={STATIC_PAGES['privacy-policy'][lang]} id="cookieConsentPrivacyLink">
+        {lang === 'zh' ? '隐私政策' : lang === 'ja' ? 'プライバシーポリシー' : 'Privacy Policy'}
+      </a>
       <select id="cookieConsentLang" onchange="window._cookieSetLang(this.value)">
         <option value="en">English</option>
         <option value="ja">日本語</option>
@@ -35,9 +37,9 @@ const { lang } = Astro.props;
       </label>
     </div>
     <div class="cookie-actions">
-      <button class="cookie-btn primary" id="btnConsentAcceptAll"></button>
-      <button class="cookie-btn outline" id="btnConsentStrictlyNecessary"></button>
-      <button class="cookie-btn outline" id="btnConsentSaveSettings"></button>
+      <button class="cookie-btn primary" id="btnConsentAcceptAll">Accept all</button>
+      <button class="cookie-btn outline" id="btnConsentStrictlyNecessary">Strictly necessary</button>
+      <button class="cookie-btn outline" id="btnConsentSaveSettings">Save settings</button>
     </div>
   </div>
 </div>
