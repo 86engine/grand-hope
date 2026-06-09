@@ -34,3 +34,7 @@ coverage/
 *.tmp
 *.temp
 .cache/
+/public/sitemap.xml
+/public/sitemap-en.xml
+/public/sitemap-ja.xml
+/public/sitemap-zh.xml

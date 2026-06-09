@@ -102,8 +102,8 @@ const heroImage = 'https://img.grand-hope.com.cn/system/grand-hope-new-materials
             <p class="rs-section-title has-theme-blue rs-split-text-enable " style="font-size:28px;line-height:1.5;">{ui.productTitle}</p>
             <p class="descrip">{ui.productDesc}</p>
             <div class="rs-services-navigation">
-              <button class="swiper-button-prev rs-swiper-btn has-bg-white has-small hover-blue"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C12 4.60551 11.6802 4.28571 11.2857 4.28571L3.01015 4.28571L6.07651 1.21936C6.35545 0.940417 6.35545 0.488155 6.07651 0.209209C5.79756 -0.0697365 5.3453 -0.0697365 5.06635 0.209209L0.780645 4.49492C0.5017 4.77387 0.5017 5.22613 0.780645 5.50508L5.06635 9.79079C5.3453 10.0697 5.79756 10.0697 6.07651 9.79079C6.35545 9.51184 6.35545 9.05958 6.07651 8.78064L3.01015 5.71429L11.2857 5.71429C11.6802 5.71429 12 5.39449 12 5Z" fill="currentColor"/></svg></button>
-              <button class="swiper-button-next rs-swiper-btn has-bg-white has-small hover-blue"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 5C0 4.60551 0.319797 4.28571 0.714286 4.28571L8.98985 4.28571L5.92349 1.21936C5.64455 0.940417 5.64455 0.488155 5.92349 0.209209C6.20244 -0.0697365 6.6547 -0.0697365 6.93365 0.209209L11.2194 4.49492C11.4983 4.77387 11.4983 5.22613 11.2194 5.50508L6.93365 9.79079C6.6547 10.0697 6.20244 10.0697 5.92349 9.79079C5.64455 9.51184 5.64455 9.05958 5.92349 8.78064L8.98985 5.71429L0.714286 5.71429C0.319797 5.71429 0 5.39449 0 5Z" fill="currentColor"/></svg></button>
+              <button class="swiper-button-prev rs-swiper-btn has-bg-white has-small hover-blue" aria-label="上一张"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C12 4.60551 11.6802 4.28571 11.2857 4.28571L3.01015 4.28571L6.07651 1.21936C6.35545 0.940417 6.35545 0.488155 6.07651 0.209209C5.79756 -0.0697365 5.3453 -0.0697365 5.06635 0.209209L0.780645 4.49492C0.5017 4.77387 0.5017 5.22613 0.780645 5.50508L5.06635 9.79079C5.3453 10.0697 5.79756 10.0697 6.07651 9.79079C6.35545 9.51184 6.35545 9.05958 6.07651 8.78064L3.01015 5.71429L11.2857 5.71429C11.6802 5.71429 12 5.39449 12 5Z" fill="currentColor"/></svg></button>
+              <button class="swiper-button-next rs-swiper-btn has-bg-white has-small hover-blue" aria-label="下一张"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 5C0 4.60551 0.319797 4.28571 0.714286 4.28571L8.98985 4.28571L5.92349 1.21936C5.64455 0.940417 5.64455 0.488155 5.92349 0.209209C6.20244 -0.0697365 6.6547 -0.0697365 6.93365 0.209209L11.2194 4.49492C11.4983 4.77387 11.4983 5.22613 11.2194 5.50508L6.93365 9.79079C6.6547 10.0697 6.20244 10.0697 5.92349 9.79079C5.64455 9.51184 5.64455 9.05958 5.92349 8.78064L8.98985 5.71429L0.714286 5.71429C0.319797 5.71429 0 5.39449 0 5Z" fill="currentColor"/></svg></button>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ const heroImage = 'https://img.grand-hope.com.cn/system/grand-hope-new-materials
                 return (
                   <div class="swiper-slide">
                     <div class="rs-services-item">
-                      <div class="rs-services-thumb"><a href={productDetailUrl}><img src={product.acf?.product_category_img?.url || product.acf?.product_category_img} alt={product.acf?.product_name} /></a></div>
+                      <div class="rs-services-thumb"><a href={productDetailUrl}><img src={product.acf?.product_category_img?.url || product.acf?.product_category_img} alt={product.acf?.product_name || '碳毡产品'} /></a></div>
                       <div class="rs-services-content">
                         <h5 class="rs-services-title"><a href={productDetailUrl}>{product.acf?.product_name}</a></h5>
                         <p class="descrip">{product.acf?.product_category_overview}</p>
@@ -312,7 +312,7 @@ const heroImage = 'https://img.grand-hope.com.cn/system/grand-hope-new-materials
                 <div class="rs-portfolio-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
                   <div class="rs-portfolio-thumb">
                     <a href={appDetailUrl}>
-                      <img src={app.acf?.application_category_img?.url || app.acf?.application_category_img} alt={app.acf?.application_name} />
+                      <img src={app.acf?.application_category_img?.url || app.acf?.application_category_img} alt={app.acf?.application_name || '应用场景'} />
                     </a>
                     <div class="rs-portfolio-content">
                       <div class="rs-portfolio-tag"><a href={appDetailUrl}>{ui.solutionTag}</a></div>
@@ -362,7 +362,7 @@ const heroImage = 'https://img.grand-hope.com.cn/system/grand-hope-new-materials
               <div class="rs-why-choose-thumb"><img src="https://img.grand-hope.com.cn/system/grand-hope-showroom.webp" loading="lazy" decoding="async" alt={ui.whyChooseAlt1}></div>
               <div class="rs-why-choose-small-thumb">
                 <img src="https://img.grand-hope.com.cn/system/carbon-felt-side-detail-20260602.webp" loading="lazy" decoding="async" alt={ui.whyChooseAlt2}>
-                <div class="rs-why-choose-btn"><a href="https://img.grand-hope.com.cn/system/video/Grand-Hope_Corporate_Culture.mp4" class="rs-play-btn popup-video has-theme-blue"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4.5V13.5L13.5 9L6 4.5Z" fill="white"/></svg></a></div>
+                <div class="rs-why-choose-btn"><a href="https://img.grand-hope.com.cn/system/video/Grand-Hope_Corporate_Culture.mp4" class="rs-play-btn popup-video has-theme-blue" aria-label="播放企业视频"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4.5V13.5L13.5 9L6 4.5Z" fill="white"/></svg></a></div>
               </div>
             </div>
           </div>

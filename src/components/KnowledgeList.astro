@@ -65,7 +65,7 @@ const { lang, knowledgeList, pageData, ui } = Astro.props;
               </div>
               <div class="rs-services-thumb">
                 <a href={detailUrl}>
-                  <img src={item.acf?.knowledge_category_img} alt={item.acf?.knowledge_name} />
+                  <img src={item.acf?.knowledge_category_img} alt={item.acf?.knowledge_name || 'Knowledge article image'} />
                 </a>
               </div>
               <div class="rs-services-number"></div>

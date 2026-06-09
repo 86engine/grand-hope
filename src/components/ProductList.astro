@@ -42,7 +42,7 @@ const { lang, products, productCategories, ui } = Astro.props;
         <div class="rs-services-item">
           <div class="rs-services-thumb">
             <a href={productUrl}>
-              <img src={product.acf?.product_category_img?.url || product.acf?.product_category_img} alt={product.acf?.product_name} />
+              <img src={product.acf?.product_category_img?.url || product.acf?.product_category_img} alt={product.acf?.product_name || 'Product image'} />
             </a>
           </div>
           <div class="rs-services-content">

@@ -40,7 +40,7 @@ const { lang, applications, applicationCategories, ui } = Astro.props;
             <div class="rs-portfolio-item">
               <div class="rs-portfolio-thumb">
                 <a href={detailUrl}>
-                  <img src={application.acf?.application_category_img?.url || application.acf?.application_category_img} loading="lazy" decoding="async" alt={application.acf?.application_name} />
+                  <img src={application.acf?.application_category_img?.url || application.acf?.application_category_img} loading="lazy" decoding="async" alt={application.acf?.application_name || 'Application image'} />
                 </a>
                 <div class="rs-portfolio-content">
                   <div class="rs-portfolio-tag">
