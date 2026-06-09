@@ -2675,7 +2675,7 @@ textarea:focus {
   visibility: hidden;
 }
 .offcanvas-overlay:hover {
-  cursor: url(../images/shape/cross-out.png), pointer;
+  cursor: pointer;
 }
 .offcanvas-overlay.overlay-open {
   opacity: 1;
