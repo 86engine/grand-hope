@@ -83,7 +83,7 @@ const heroImage = 'https://img.grand-hope.com.cn/system/grand-hope-new-materials
               <div class="rs-feature-item wow fadeInUp" data-wow-delay={`.${[0.3, 0.5, 0.7][n-1]}s`} data-wow-duration="1s">
                 <h3 class="rs-feature-title">{ui[`feature${n}Title`]}</h3>
                 <div class="rs-feature-descrip"><p>{ui[`feature${n}Desc`]}</p></div>
-                <div class="rs-feature-icon"><img src={`assets/images/icon/feature-icon-0${n}.png`} loading="lazy" decoding="async" alt="image"></div>
+                <div class="rs-feature-icon"><img src={`/assets/images/icon/feature-icon-0${n}.png`} loading="lazy" decoding="async" alt="image"></div>
               </div>
             </div>
           ))}
@@ -102,8 +102,8 @@ const heroImage = 'https://img.grand-hope.com.cn/system/grand-hope-new-materials
             <p class="rs-section-title has-theme-blue rs-split-text-enable " style="font-size:28px;line-height:1.5;">{ui.productTitle}</p>
             <p class="descrip">{ui.productDesc}</p>
             <div class="rs-services-navigation">
-              <button class="swiper-button-prev rs-swiper-btn has-bg-white has-small hover-blue"><i class="fa-solid fa-arrow-left"></i></button>
-              <button class="swiper-button-next rs-swiper-btn has-bg-white has-small hover-blue"><i class="fa-solid fa-arrow-right"></i></button>
+              <button class="swiper-button-prev rs-swiper-btn has-bg-white has-small hover-blue"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C12 4.60551 11.6802 4.28571 11.2857 4.28571L3.01015 4.28571L6.07651 1.21936C6.35545 0.940417 6.35545 0.488155 6.07651 0.209209C5.79756 -0.0697365 5.3453 -0.0697365 5.06635 0.209209L0.780645 4.49492C0.5017 4.77387 0.5017 5.22613 0.780645 5.50508L5.06635 9.79079C5.3453 10.0697 5.79756 10.0697 6.07651 9.79079C6.35545 9.51184 6.35545 9.05958 6.07651 8.78064L3.01015 5.71429L11.2857 5.71429C11.6802 5.71429 12 5.39449 12 5Z" fill="currentColor"/></svg></button>
+              <button class="swiper-button-next rs-swiper-btn has-bg-white has-small hover-blue"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 5C0 4.60551 0.319797 4.28571 0.714286 4.28571L8.98985 4.28571L5.92349 1.21936C5.64455 0.940417 5.64455 0.488155 5.92349 0.209209C6.20244 -0.0697365 6.6547 -0.0697365 6.93365 0.209209L11.2194 4.49492C11.4983 4.77387 11.4983 5.22613 11.2194 5.50508L6.93365 9.79079C6.6547 10.0697 6.20244 10.0697 5.92349 9.79079C5.64455 9.51184 5.64455 9.05958 5.92349 8.78064L8.98985 5.71429L0.714286 5.71429C0.319797 5.71429 0 5.39449 0 5Z" fill="currentColor"/></svg></button>
             </div>
           </div>
         </div>
@@ -410,7 +410,7 @@ const heroImage = 'https://img.grand-hope.com.cn/system/grand-hope-new-materials
           </div>
           <div class="col-xl-5 col-lg-5">
             <div class="rs-contact-form wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-              <div class="rs-contact-form-bg-thumb" data-background="hhttps://img.grand-hope.com.cn/system/contact-bg-03.png" style="background-image: url('https://img.grand-hope.com.cn/system/contact-bg-03.png');"></div>
+              <div class="rs-contact-form-bg-thumb" data-background="https://img.grand-hope.com.cn/system/contact-bg-03.png" style="background-image: url('https://img.grand-hope.com.cn/system/contact-bg-03.png');"></div>
               <h3 class="rs-contact-form-title">{ui.contactFormTitle}</h3>
               <p class="descrip">{ui.contactFormDesc}</p>
               <form
