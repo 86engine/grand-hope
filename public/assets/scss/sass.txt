@@ -1,1 +1,0 @@
-sass --watch main.scss:../css/main.css
