@@ -19,10 +19,9 @@ const siteUrl = 'https://grand-hope.com.cn';
 const alternates = {};
 if (currentContentId && isStaticPage(currentContentId)) {
   for (const l of LANGS) {
-    alternates[l] = STATIC_PAGES[currentContentId][l];
+    alternates[l] = `${siteUrl}${STATIC_PAGES[currentContentId][l]}`;
   }
 } else {
-  // 从翻译索引获取当前页面所有语言的 URL，用于构建 hreflang
   const translations = getTranslationsByContentId(currentContentId);
   if (translations) {
     for (const l of LANGS) {
