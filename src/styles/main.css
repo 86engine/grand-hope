@@ -234,7 +234,7 @@ h6, .body__overlay {
   --rs-fs-p: 17px;
   --rs-fs-h1: 68px;
   --rs-fs-h2: 28px;
-  --rs-fs-h3: 38px;
+  --rs-fs-h3: 24px;
   --rs-fs-h4: 28px;
   --rs-fs-h5: 24px;
   --rs-fs-h6: 20px;
@@ -25723,3 +25723,43 @@ a.ui-button:active {
 }
 /*# sourceMappingURL=main.css.map */
 .rs-play-btn svg path { fill: white !important; }
+
+/* 移动端语言切换器 */
+.mobile-lang-switcher {
+  padding-left: 0;
+}
+
+.mobile-lang-switcher ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 38px;
+}
+
+.mobile-lang-switcher ul li {
+  list-style: none;
+}
+
+.mobile-lang-switcher ul li a {
+  display: inline-block;
+  padding: 8px 0;
+  font-size: 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.mobile-lang-switcher ul li a.active,
+.mobile-lang-switcher ul li a[style*="font-weight:bold"] {
+  color: var(--rs-theme-blue);
+  font-weight: 700;
+}
+
+/* 修复对比度：contact区域 */
+.rs-contact-one .rs-section-title-wrapper .descrip,
+.rs-contact-area .rs-contact-list-content span,
+.rs-contact-area .rs-contact-list-content p a,
+.rs-contact-area .offcanvas-contact-text a {
+  color: #EEEEEE;
+}
