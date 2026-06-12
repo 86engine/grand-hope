@@ -22,7 +22,9 @@
     "address":"No. 4885, Gucheng Road, Kunshan City, Jiangsu Province",
     "phone":"+86 180 2021 1540",
     "email1":"hao.ni@grand-hope.com.cn",
-    "email2":"liuling@guanhegroup.com.cn"
+    "email2":"liuling@guanhegroup.com.cn",
+    "openMenu":"Open menu",
+    "closeMenu":"Close menu"
   },
   "ja": {
     "home": "ホーム",
@@ -47,7 +49,9 @@
     "address":"中国江蘇省昆山市古城路4885号",
     "phone":"+86 180 2021 1540",
      "email1":"hao.ni@grand-hope.com.cn",
-    "email2":"liuling@guanhegroup.com.cn"
+    "email2":"liuling@guanhegroup.com.cn",
+    "openMenu":"メニューを開く",
+    "closeMenu":"メニューを閉じる"
   },
   "zh": {
     "home": "首页",
@@ -72,6 +76,8 @@
     "address":"江苏省昆山市古城路 4885 号",
     "phone":"+86 180 2021 1540",
     "email1":"hao.ni@grand-hope.com.cn",
-    "email2":"liuling@guanhegroup.com.cn"
+    "email2":"liuling@guanhegroup.com.cn",
+    "openMenu":"打开菜单",
+    "closeMenu":"关闭菜单"
   }
 }
