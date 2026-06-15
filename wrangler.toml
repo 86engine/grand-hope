@@ -1,4 +1,4 @@
-name = "grand-hope-session"
+name = "grand-hope"
 compatibility_date = "2026-06-03"
 
 # 关键：显式声明空的 KV 绑定，直接覆盖并拒绝 Wrangler 的默认行为
