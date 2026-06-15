@@ -1,5 +1,6 @@
 ---
 import PageBanner from "./PageBanner.astro";
+import CopyProtectedDetail from "./CopyProtectedDetail.astro";
 import { getPageURL, buildBreadcrumb } from "../data/site.js";
 
 const { lang, update, ui } = Astro.props;
@@ -21,6 +22,7 @@ function formatDate(dateStr) {
   background="https://img.grand-hope.com.cn/system/grand-hope-news-banner.webp"
 />
 
+<CopyProtectedDetail lang={lang}>
 <section class="rs-postbox-area section-space">
   <div class="container">
     <div class="row g-5">
@@ -69,3 +71,4 @@ function formatDate(dateStr) {
     </div>
   </div>
 </section>
+</CopyProtectedDetail>

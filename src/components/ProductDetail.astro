@@ -1,5 +1,6 @@
 ---
 import PageBanner from "./PageBanner.astro";
+import CopyProtectedDetail from "./CopyProtectedDetail.astro";
 import { getPageURL, buildBreadcrumb } from "../data/site.js";
 
 const { lang, product, ui } = Astro.props;
@@ -14,6 +15,7 @@ const { lang, product, ui } = Astro.props;
   background={product.pageBackground}
 />
 
+<CopyProtectedDetail lang={lang}>
 <section class="rs-services-area section-space">
   <div class="container">
     <div class="rs-services-details-wrapper">
@@ -176,3 +178,4 @@ const { lang, product, ui } = Astro.props;
     </div>
   </div>
 </section>
+</CopyProtectedDetail>

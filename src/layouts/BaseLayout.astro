@@ -14,7 +14,8 @@ const {
   preloadImages = []
 } = Astro.props;
 
-const siteUrl = 'https://grand-hope.com.cn';
+const productionSiteUrl = 'https://grand-hope.com.cn';
+const siteUrl = import.meta.env.DEV ? Astro.url.origin : productionSiteUrl;
 
 const alternates = {};
 if (currentContentId && isStaticPage(currentContentId)) {
