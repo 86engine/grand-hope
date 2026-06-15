@@ -5,7 +5,7 @@ import { LANGS, STATIC_PAGES, isStaticPage } from '../config/site';
 
 const isDev = import.meta.env.DEV;
 const WP_DOMAIN = 'https://wp.grand-hope.com.cn';
-const LOCAL_DOMAIN = 'http://localhost:4321';
+const PROD_DOMAIN = 'https://grand-hope.com.cn';
 
 /**
  * 开发环境下将 WP 线上域名替换为本地地址
@@ -14,10 +14,10 @@ export function localizeURL(url) {
   if (!url) return url;
   if (url.startsWith(WP_DOMAIN)) {
     if (isDev) {
-      return url.replace(WP_DOMAIN, LOCAL_DOMAIN);
+      return url.replace(WP_DOMAIN, '');
     }
     // 生产环境：替换为实际域名
-    return url.replace(WP_DOMAIN, 'https://grand-hope.com.cn');
+    return url.replace(WP_DOMAIN, PROD_DOMAIN);
   }
   return url;
 }

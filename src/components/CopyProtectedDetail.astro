@@ -1,0 +1,49 @@
+---
+const { lang = "en" } = Astro.props;
+---
+
+<div class="copy-protected-detail" data-copy-protected-detail>
+  <slot />
+</div>
+
+<style>
+  .copy-protected-detail,
+  .copy-protected-detail * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const init = () => {
+      document.querySelectorAll("[data-copy-protected-detail]").forEach((root) => {
+        if (root.dataset.copyProtectedReady === "true") return;
+        root.dataset.copyProtectedReady = "true";
+
+        const preventAction = (event) => {
+          const target = event.target;
+          if (
+            target instanceof HTMLElement &&
+            (target.closest("input, textarea, select") || target.isContentEditable)
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+        };
+
+        ["copy", "cut", "contextmenu", "selectstart", "dragstart"].forEach((eventName) => {
+          root.addEventListener(eventName, preventAction);
+        });
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init, { once: true });
+    } else {
+      init();
+    }
+  })();
+</script>
